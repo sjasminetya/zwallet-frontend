@@ -12,7 +12,8 @@ export default new Vuex.Store({
     password: '',
     user: {},
     id: null || localStorage.getItem('id'),
-    token: null || localStorage.getItem('token')
+    token: null || localStorage.getItem('token'),
+    userLogin: []
   },
   plugins: [createPersistedState()],
   mutations: {
@@ -28,6 +29,9 @@ export default new Vuex.Store({
       state.user = payload
       state.id = payload.id
       state.token = payload.token
+    },
+    set_user_login (state, payload) {
+      state.userLogin = payload
     }
   },
   actions: {
@@ -50,6 +54,17 @@ export default new Vuex.Store({
             const result = res.data.result.message
             context.commit('set_user', result)
             resolve(result)
+          })
+      })
+    },
+    userProfile (context, payload) {
+      return new Promise((resolve, reject) => {
+        axios.get(`${process.env.VUE_APP_URL_API}/users/${localStorage.getItem('id')}`, payload)
+          .then(res => {
+            const result = res.data.result[0]
+            context.commit('set_user_login', result)
+            resolve(result)
+            console.log('user login', result)
           })
       })
     },
@@ -97,6 +112,14 @@ export default new Vuex.Store({
         }
         return Promise.reject(error)
       })
+    }
+  },
+  getters: {
+    isLogin (state) {
+      return state.token !== null
+    },
+    profile (state) {
+      return state.userLogin
     }
   },
   modules: {
