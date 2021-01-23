@@ -43,7 +43,7 @@
 import Input from '../../components/base/Input'
 import Button from '../../components/base/Button'
 import { required, minLength, email } from 'vuelidate/lib/validators'
-import { mapMutations } from 'vuex'
+import { mapMutations, mapActions } from 'vuex'
 export default {
   name: 'Login',
   components: {
@@ -61,13 +61,22 @@ export default {
     password: { required, minLength: minLength(6) }
   },
   methods: {
+    ...mapActions(['login']),
     validationStatus (validation) {
       return typeof validation !== 'undefined' ? validation.$error : false
     },
     goLogin () {
       this.$v.$touch()
       if (this.$v.$pendding || this.$v.$error) return
-      console.log('coba')
+
+      const payload = {
+        email: this.email,
+        password: this.password
+      }
+      this.login(payload)
+        .then(() => {
+          this.$awn.success('Success login')
+        })
     },
     ...mapMutations(['togglePassword'])
   }

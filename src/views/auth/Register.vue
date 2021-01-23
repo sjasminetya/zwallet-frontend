@@ -49,7 +49,7 @@
 import Input from '../../components/base/Input'
 import Button from '../../components/base/Button'
 import { required, minLength, email } from 'vuelidate/lib/validators'
-import { mapMutations } from 'vuex'
+import { mapMutations, mapActions } from 'vuex'
 export default {
   name: 'Register',
   components: {
@@ -71,13 +71,22 @@ export default {
     phoneNumber: { required }
   },
   methods: {
+    ...mapActions(['register']),
     validationStatus (validation) {
       return typeof validation !== 'undefined' ? validation.$error : false
     },
     goRegister () {
       this.$v.$touch()
       if (this.$v.$pendding || this.$v.$error) return
-      console.log('coba')
+
+      const payload = {
+        username: this.username,
+        phoneNumber: this.phoneNumber,
+        email: this.email,
+        password: this.password
+      }
+
+      this.register(payload)
     },
     ...mapMutations(['togglePassword'])
   }
