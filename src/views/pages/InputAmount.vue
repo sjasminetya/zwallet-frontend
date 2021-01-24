@@ -51,7 +51,11 @@
 
                         <div class="row">
                             <div class="col-md-5 mt-3 col-sm-6 col-8">
-                                <button @click.prevent="trasnferMoney" type="submit" class="btn btn-info btn-lg">Continue</button>
+                                <button v-b-modal.modal-1 type="submit" class="btn btn-info btn-lg">Continue</button>
+                                <b-modal id="modal-1" title="Input your PIN" @ok="transferMoney" @show="resetModal" @hidden="resetModal">
+                                    <h6>Input PIN</h6>
+                                    <PincodeInput v-model="pin" placeholder="0" :length="6" required/>
+                                </b-modal>
                             </div>
                         </div>
 
@@ -63,19 +67,22 @@
 </template>
 
 <script>
+import PincodeInput from 'vue-pincode-input'
 import { mapActions, mapGetters } from 'vuex'
 import SideBar from '../../components/module/SideBar'
 export default {
   name: 'InputAmount',
   components: {
-    SideBar
+    SideBar,
+    PincodeInput
   },
   data () {
     return {
       receiverId: this.$route.query.id,
       senderId: localStorage.getItem('id'),
       inputAmount: '',
-      notes: ''
+      notes: '',
+      pin: ''
     }
   },
   methods: {
@@ -84,11 +91,12 @@ export default {
       const id = this.$route.query.id
       this.profileFriends(id)
     },
-    trasnferMoney () {
+    transferMoney () {
       const payload = {
         receiverId: this.receiverId,
         senderId: this.senderId,
         amount: this.inputAmount,
+        senderPin: this.pin,
         notes: this.notes
       }
       this.transfer(payload)
@@ -96,6 +104,10 @@ export default {
           this.$router.push('/page/transaction-history')
           this.$awn.success(`Success transfer to ${this.transferToFriend.firstName}`)
         })
+    },
+    resetModal () {
+      this.pin = ''
+      this.balance = ''
     }
   },
   computed: {
