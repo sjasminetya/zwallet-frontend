@@ -5,6 +5,8 @@ import Auth from '../views/auth/Auth.vue'
 import Login from '../views/auth/Login.vue'
 import Register from '../views/auth/Register.vue'
 import Index from '../views/pages/index.vue'
+import Dashboard from '../views/pages/Dashboard.vue'
+import SearchReceiver from '../views/pages/SearchReceiver.vue'
 
 Vue.use(VueRouter)
 
@@ -34,7 +36,19 @@ const routes = [
   {
     path: '/page',
     name: 'Index',
-    component: Index
+    component: Index,
+    children: [
+      {
+        path: 'dashboard',
+        name: 'Dashboard',
+        component: Dashboard
+      },
+      {
+        path: 'search-receiver',
+        name: 'SearchReceiver',
+        component: SearchReceiver
+      }
+    ]
   }
 ]
 

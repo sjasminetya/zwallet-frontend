@@ -13,7 +13,10 @@ export default new Vuex.Store({
     user: {},
     id: null || localStorage.getItem('id'),
     token: null || localStorage.getItem('token'),
-    userLogin: []
+    userLogin: [],
+    transactionHistory: [],
+    userFriends: [],
+    searchName: []
   },
   plugins: [createPersistedState()],
   mutations: {
@@ -32,6 +35,15 @@ export default new Vuex.Store({
     },
     set_user_login (state, payload) {
       state.userLogin = payload
+    },
+    set_transaction_history (state, payload) {
+      state.transactionHistory = payload
+    },
+    set_user_friends (state, payload) {
+      state.userFriends = payload
+    },
+    set_search_name (state, payload) {
+      state.searchName = payload
     }
   },
   actions: {
@@ -65,6 +77,39 @@ export default new Vuex.Store({
             context.commit('set_user_login', result)
             resolve(result)
             console.log('user login', result)
+          })
+      })
+    },
+    getTransactionHistory (context, payload) {
+      return new Promise((resolve, reject) => {
+        axios.get(`${process.env.VUE_APP_URL_API}/transfer/transaction-history/${localStorage.getItem('id')}`)
+          .then(res => {
+            const result = res.data.result
+            context.commit('set_transaction_history', result)
+            resolve(result)
+            console.log('transaction history', result)
+          })
+      })
+    },
+    userFriends (context, payload) {
+      return new Promise((resolve, reject) => {
+        axios.get(`${process.env.VUE_APP_URL_API}/users/${localStorage.getItem('id')}/friends`, payload)
+          .then(res => {
+            const result = res.data.result
+            context.commit('set_user_friends', result)
+            resolve(result)
+            console.log('user friends', result)
+          })
+      })
+    },
+    searchName (context, payload) {
+      return new Promise((resolve, reject) => {
+        axios.get(`${process.env.VUE_APP_URL_API}/users?name=${payload}`)
+          .then(res => {
+            const result = res.data.result
+            context.commit('set_search_name', result)
+            resolve(result)
+            console.log('search name', result)
           })
       })
     },
@@ -120,6 +165,12 @@ export default new Vuex.Store({
     },
     profile (state) {
       return state.userLogin
+    },
+    transactionHistory (state) {
+      return state.transactionHistory
+    },
+    friends (state) {
+      return state.userFriends
     }
   },
   modules: {
