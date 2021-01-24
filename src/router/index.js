@@ -10,6 +10,7 @@ import SearchReceiver from '../views/pages/SearchReceiver.vue'
 import History from '../views/pages/History.vue'
 import InputAmount from '../views/pages/InputAmount.vue'
 import SettingsProfile from '../views/pages/SettingsProfile.vue'
+import PersonalInformation from '../views/pages/PersonalInformation.vue'
 
 Vue.use(VueRouter)
 
@@ -65,6 +66,11 @@ const routes = [
         path: 'settings-profile',
         name: 'SettingsProfile',
         component: SettingsProfile
+      },
+      {
+        path: 'personal-info',
+        name: 'PersonalInformation',
+        component: PersonalInformation
       }
     ]
   }

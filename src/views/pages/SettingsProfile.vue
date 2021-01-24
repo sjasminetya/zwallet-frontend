@@ -22,7 +22,7 @@
 
                     <div class="button-profile">
                         <div class="btn btn-personal">
-                            <router-link to="#">Personal Information<i class="fas fa-arrow-right"></i></router-link>
+                            <router-link to="/page/personal-info">Personal Information<i class="fas fa-arrow-right"></i></router-link>
                         </div>
 
                         <div class="btn btn-change-password">
