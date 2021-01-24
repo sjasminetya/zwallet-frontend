@@ -8,6 +8,7 @@ import Index from '../views/pages/index.vue'
 import Dashboard from '../views/pages/Dashboard.vue'
 import SearchReceiver from '../views/pages/SearchReceiver.vue'
 import History from '../views/pages/History.vue'
+import InputAmount from '../views/pages/InputAmount.vue'
 
 Vue.use(VueRouter)
 
@@ -53,6 +54,11 @@ const routes = [
         path: 'transaction-history',
         name: 'History',
         component: History
+      },
+      {
+        path: 'input-amount',
+        name: 'InputAmount',
+        component: InputAmount
       }
     ]
   }

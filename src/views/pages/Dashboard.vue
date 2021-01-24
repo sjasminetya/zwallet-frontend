@@ -63,7 +63,7 @@
                                 <h6 class="transaction">Transaction History</h6>
                                 <router-link to="/page/transaction-history">See all</router-link>
 
-                                <div class="content-history" v-for="data in transactionHistory" :key="data.id">
+                                <div class="content-history" v-for="(data, index) in transactionHistory" :key="index">
                                     <div class="history">
                                         <div class="user-img">
                                             <img :src="data.image" alt="user profile">
@@ -71,7 +71,7 @@
 
                                         <div class="text">
                                             <h6 class="name">{{data.firstName}} {{data.lastName}}</h6>
-                                            <p class="transfer">{{data.transaction_status}}</p>
+                                            <p class="transfer">{{data.notes}}</p>
                                         </div>
 
                                         <p class="amount">- Rp{{data.amount}}</p>

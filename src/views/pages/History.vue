@@ -8,7 +8,7 @@
                         <h6 class="transaction">Transaction History</h6>
                         <p class="text-transaction">your transaction history after transfer to your friends</p>
 
-                        <div class="content-history" v-for="data in transactionHistory" :key="data.id">
+                        <div class="content-history" v-for="(data, index) in transactionHistory" :key="index">
 
                             <div class="history">
                                 <div class="user-img">
@@ -16,10 +16,10 @@
                                 </div>
                                 <div class="text">
                                     <h6 class="name">{{data.firstName}} {{data.lastName}}</h6>
-                                    <p class="transfer">{{data.transaction_status}}</p>
+                                    <p class="transfer">{{data.notes}}</p>
                                 </div>
 
-                                <p class="samuel-tf">- Rp{{data.amount}}</p>
+                                <p class="amount">- Rp{{data.amount}}</p>
                             </div>
                         </div>
                     </div>
@@ -175,7 +175,7 @@ main .history .text .transfer {
     color: #7A7886;
 }
 
-main .history .samuel-tf {
+main .history .amount {
 
     font-style: normal;
     font-weight: bold;
@@ -254,7 +254,7 @@ main .history .samuel-tf {
         left: 30%;
     }
 
-    main .samuel-tf {
+    main .amount {
         left: 72%;
     }
 }
@@ -301,7 +301,7 @@ main .history .samuel-tf {
 }
 
 @media (max-width: 379px) {
-    main .history .samuel-tf  {
+    main .history .amount  {
         left: 20%;
     }
 }

@@ -16,7 +16,9 @@ export default new Vuex.Store({
     userLogin: [],
     transactionHistory: [],
     userFriends: [],
-    searchName: []
+    searchName: [],
+    profileFriends: [],
+    transfer: []
   },
   plugins: [createPersistedState()],
   mutations: {
@@ -44,6 +46,12 @@ export default new Vuex.Store({
     },
     set_search_name (state, payload) {
       state.searchName = payload
+    },
+    set_profile_friends (state, payload) {
+      state.profileFriends = payload
+    },
+    set_transfer (state, payload) {
+      state.transfer = payload
     }
   },
   actions: {
@@ -113,6 +121,28 @@ export default new Vuex.Store({
           })
       })
     },
+    profileFriends (context, payload) {
+      return new Promise((resolve, reject) => {
+        axios.get(`${process.env.VUE_APP_URL_API}/users/${payload}`)
+          .then(res => {
+            const result = res.data.result[0]
+            context.commit('set_profile_friends', result)
+            resolve(result)
+            console.log('profile friends', result)
+          })
+      })
+    },
+    transfer (context, payload) {
+      return new Promise((resolve, reject) => {
+        axios.post(`${process.env.VUE_APP_URL_API}/transfer`, payload)
+          .then(res => {
+            const result = res.data.result.message
+            context.commit('set_transfer', result)
+            resolve(result)
+            console.log('transfer', result)
+          })
+      })
+    },
     interceptorRequest (context) {
       axios.interceptors.request.use(function (config) {
         config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`
@@ -171,6 +201,9 @@ export default new Vuex.Store({
     },
     friends (state) {
       return state.userFriends
+    },
+    transferToFriend (state) {
+      return state.profileFriends
     }
   },
   modules: {

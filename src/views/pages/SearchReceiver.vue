@@ -89,7 +89,7 @@ export default {
       this.friends.sort((a, b) => a.firstName < b.firstName ? 1 : -1)
     },
     goPage (id) {
-      this.$router.query({ path: '/transfer/input-amount', query: { id: id } })
+      this.$router.push({ path: '/page/input-amount', query: { id: id } })
     }
   },
   watch: {
