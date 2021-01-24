@@ -11,7 +11,7 @@
 
                         <div class="button-right">
                             <button type="submit" class="btn">
-                                <router-link to="/transfer/search-receiver"><i class="fas fa-arrow-up"></i>Transfer</router-link>
+                                <router-link to="/page/search-receiver"><i class="fas fa-arrow-up"></i>Transfer</router-link>
                             </button>
                             <button type="submit" class="btn">
                                 <router-link to="/transfer/top-up"><i class="fas fa-plus"></i>Top Up</router-link>
@@ -61,7 +61,7 @@
                         <div class="main-right">
                             <div class="history-main">
                                 <h6 class="transaction">Transaction History</h6>
-                                <router-link to="/main/history">See all</router-link>
+                                <router-link to="/page/transaction-history">See all</router-link>
 
                                 <div class="content-history" v-for="data in transactionHistory" :key="data.id">
                                     <div class="history">
@@ -502,10 +502,6 @@ main .section-main .main-right .history .amount {
 }
 
 @media (max-width: 1199px) {
-    main .main-top {
-        width: 800px;
-    }
-
     main .section-main .main-right {
         margin-left: 20px;
     }
@@ -538,12 +534,6 @@ main .section-main .main-right .history .amount {
 }
 
 @media (max-width: 992px) {
-    main .main-top {
-        width: 100%;
-        margin-left: 0px;
-        margin-top: 10px;
-    }
-
     main .main-top .button-right {
         margin-left: 500px;
     }
@@ -560,12 +550,6 @@ main .section-main .main-right .history .amount {
 @media (max-width: 768px) {
     main {
         flex-direction: column;
-    }
-
-    main .main-top {
-        width: 100%;
-        margin-left: 0px;
-        margin-top: 10px;
     }
 
     main .main-top .button-right {

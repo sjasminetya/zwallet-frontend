@@ -7,6 +7,7 @@ import Register from '../views/auth/Register.vue'
 import Index from '../views/pages/index.vue'
 import Dashboard from '../views/pages/Dashboard.vue'
 import SearchReceiver from '../views/pages/SearchReceiver.vue'
+import History from '../views/pages/History.vue'
 
 Vue.use(VueRouter)
 
@@ -47,6 +48,11 @@ const routes = [
         path: 'search-receiver',
         name: 'SearchReceiver',
         component: SearchReceiver
+      },
+      {
+        path: 'transaction-history',
+        name: 'History',
+        component: History
       }
     ]
   }

@@ -87,6 +87,9 @@ export default {
     },
     sortHighest () {
       this.friends.sort((a, b) => a.firstName < b.firstName ? 1 : -1)
+    },
+    goPage (id) {
+      this.$router.query({ path: '/transfer/input-amount', query: { id: id } })
     }
   },
   watch: {
@@ -252,7 +255,7 @@ main .content-search button.page-link {
 
 @media (max-width: 1300px) {
     main {
-        width: 100%;
+        width: 800px;
     }
 }
 
