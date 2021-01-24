@@ -47,7 +47,15 @@
                                     <p>Phone Number</p>
                                     <h6>{{profile.phoneNumber}}</h6>
                                 </div>
-                                <router-link to="/profile/add-phone-number" class="add-number">Add</router-link>
+                                <div v-b-modal.modal-2 class="add-number">Add</div>
+                                <b-modal id="modal-2" title="add another phone number" @ok="addNumber" @show="resetModal" @hidden="resetModal">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="phoneNumber">Phone Number</label>
+                                            <input type="number" v-model="phoneNumber" class="form-control" id="phoneNumber" >
+                                        </div>
+                                    </form>
+                                </b-modal>
                                 <router-link to="/profile/manage-phone-number" class="manage-number">Manage</router-link>
                             </div>
                         </div>
@@ -69,11 +77,12 @@ export default {
   data () {
     return {
       firstName: '',
-      lastName: ''
+      lastName: '',
+      phoneNumber: ''
     }
   },
   methods: {
-    ...mapActions(['userProfile', 'updateProfile']),
+    ...mapActions(['userProfile', 'updateProfile', 'addPhoneNumber']),
     update () {
       const payload = {
         firstName: this.firstName,
@@ -82,6 +91,17 @@ export default {
       this.updateProfile(payload)
         .then(() => {
           this.$awn.success('success update')
+          this.userProfile()
+        })
+    },
+    addNumber () {
+      const payload = {
+        phoneNumber: this.phoneNumber
+      }
+      this.addPhoneNumber(payload)
+        .then((res) => {
+          console.log(res)
+          this.$awn.success('success add phone number')
           this.userProfile()
         })
     },
@@ -224,6 +244,11 @@ main .content-personal .phone-number .manage-number {
     position: absolute;
     top: 83%;
     right: 18%;
+}
+
+main .content-personal .phone-number .add-number:focus {
+    outline: none;
+    border: none;
 }
 
 main .content-personal .phone-number .manage-number {

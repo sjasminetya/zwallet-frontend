@@ -19,7 +19,8 @@ export default new Vuex.Store({
     searchName: [],
     profileFriends: [],
     transfer: [],
-    topup: []
+    topup: [],
+    phoneNumber: []
   },
   plugins: [createPersistedState()],
   mutations: {
@@ -57,6 +58,9 @@ export default new Vuex.Store({
     set_topup (state, payload) {
       state.topup = payload
     },
+    set_add_phone (state, payload) {
+      state.phoneNumber = payload
+    },
     remove_token (state) {
       state.token = null
       state.id = null
@@ -70,6 +74,7 @@ export default new Vuex.Store({
       state.profileFriends = []
       state.transfer = []
       state.topup = []
+      state.phoneNumber = []
     }
   },
   actions: {
@@ -187,6 +192,16 @@ export default new Vuex.Store({
           })
           .catch(err => {
             reject(err)
+          })
+      })
+    },
+    addPhoneNumber (context, payload) {
+      return new Promise((resolve, reject) => {
+        axios.post(`${process.env.VUE_APP_URL_API}/phone-number`, payload)
+          .then(res => {
+            const result = res.data.result.message
+            console.log('add phone number', result)
+            resolve(result)
           })
       })
     },
