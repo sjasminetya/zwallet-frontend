@@ -283,9 +283,25 @@ main .button-profile .btn-change-pin i {
     }
 }
 
+@media (max-width: 987px) {
+    main .button-profile .btn-personal  i,
+    main .button-profile .btn-change-password i,
+    main .button-profile .btn-change-pin i {
+        right: 10%;
+    }
+}
+
 @media (max-width: 768px) {
     main .section-profile .text-edit span {
         top: 19%;
+    }
+}
+
+@media (max-width: 755px) {
+    main .button-profile .btn-personal  i,
+    main .button-profile .btn-change-password i,
+    main .button-profile .btn-change-pin i {
+        right: 0%;
     }
 }
 
@@ -323,7 +339,6 @@ main .button-profile .btn-change-pin i {
     }
 }
 
-/* Pixel 2/Pixel 2 XL/Iphone(6/7/8) Plus */
 @media (max-width: 415px) {
    main .section-profile .text-edit span {
         top: 18%;

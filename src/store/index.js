@@ -56,6 +56,20 @@ export default new Vuex.Store({
     },
     set_topup (state, payload) {
       state.topup = payload
+    },
+    remove_token (state) {
+      state.token = null
+      state.id = null
+    },
+    remove (state) {
+      state.user = {}
+      state.userLogin = []
+      state.transactionHistory = []
+      state.userFriends = []
+      state.searchName = []
+      state.profileFriends = []
+      state.transfer = []
+      state.topup = []
     }
   },
   actions: {
@@ -80,6 +94,12 @@ export default new Vuex.Store({
             resolve(result)
           })
       })
+    },
+    logout (context) {
+      localStorage.removeItem('id')
+      localStorage.removeItem('token')
+      context.commit('remove_token')
+      context.commit('remove')
     },
     userProfile (context, payload) {
       return new Promise((resolve, reject) => {
@@ -222,6 +242,34 @@ export default new Vuex.Store({
             Swal.fire({
               icon: 'error',
               title: 'Please confirm your email to login!',
+              showConfirmButton: false,
+              timer: 2000
+            })
+          } else if (error.response.data.err.error === 'token expired') {
+            localStorage.removeItem('id')
+            localStorage.removeItem('token')
+            context.commit('remove_token')
+            context.commit('remove')
+            router.push('/auth/login')
+          } else if (error.response.data.err.error === 'invalid token') {
+            localStorage.removeItem('id')
+            localStorage.removeItem('token')
+            context.commit('remove_token')
+            context.commit('remove')
+            router.push('/auth/login')
+          }
+        } else if (error.response.data.error.status === 500) {
+          if (error.response.data.error.message === 'File too large') {
+            Swal.fire({
+              icon: 'error',
+              title: 'File too large',
+              showConfirmButton: false,
+              timer: 2000
+            })
+          } else if (error.response.data.error.message === 'type file not supported') {
+            Swal.fire({
+              icon: 'error',
+              title: 'Type file not supported',
               showConfirmButton: false,
               timer: 2000
             })

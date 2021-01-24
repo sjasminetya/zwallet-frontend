@@ -76,6 +76,7 @@ export default {
       this.login(payload)
         .then(() => {
           this.$awn.success('Success login')
+          this.$router.push('/page/dashboard')
         })
     },
     ...mapMutations(['togglePassword'])

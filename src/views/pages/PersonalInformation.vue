@@ -9,7 +9,19 @@
                         <div class="row">
                             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                 <p class="text-personal">We got your personal information from the sign up proccess. If you want to make changes on your information, contact our support.</p>
-                                <router-link to="#">Edit your personal info</router-link>
+                                <div v-b-modal.modal-1 class="edit">Edit your personal info</div>
+                                <b-modal id="modal-1" title="Edit personal info" @ok="update" @show="resetModal" @hidden="resetModal">
+                                    <form>
+                                        <div class="form-group">
+                                            <label for="firstName">First Name</label>
+                                            <input type="text" v-model="firstName" class="form-control" id="firstName">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="lastName">Last Name</label>
+                                            <input type="text" v-model="lastName" class="form-control" id="lastName" >
+                                        </div>
+                                    </form>
+                                </b-modal>
                             </div>
                         </div>
 
@@ -18,13 +30,11 @@
                             <div class="first-name">
                                 <p>First Name</p>
                                 <h6>{{profile.firstName}}</h6>
-                                <!-- <router-link to="/profile/update-firstname" class="edit-firstname">Edit</router-link> -->
                             </div>
 
                             <div class="last-name">
                                 <p>Last Name</p>
                                 <h6>{{profile.lastName}}</h6>
-                                <!-- <router-link to="/profile/update-lastname" class="edit-lastname">Edit</router-link> -->
                             </div>
 
                             <div class="verified-email">
@@ -56,8 +66,29 @@ export default {
   components: {
     SideBar
   },
+  data () {
+    return {
+      firstName: '',
+      lastName: ''
+    }
+  },
   methods: {
-    ...mapActions(['userProfile'])
+    ...mapActions(['userProfile', 'updateProfile']),
+    update () {
+      const payload = {
+        firstName: this.firstName,
+        lastName: this.lastName
+      }
+      this.updateProfile(payload)
+        .then(() => {
+          this.$awn.success('success update')
+          this.userProfile()
+        })
+    },
+    resetModal () {
+      this.firstName = ''
+      this.lastName = ''
+    }
   },
   computed: {
     ...mapGetters(['profile'])
@@ -100,7 +131,7 @@ main .personal-info {
 }
 
 main .text-personal,
-main a {
+main .edit {
     font-style: normal;
     font-weight: normal;
     font-size: 16px;
@@ -111,13 +142,17 @@ main a {
     color: #7A7886;
 }
 
-main a {
+main .edit {
     color: #6379F4;
 }
 
-main a:hover {
+main .edit:hover {
     color: #6379F4;
     text-decoration: none;
+}
+
+main .edit:focus {
+    outline: none;
 }
 
 main .content-personal {
@@ -187,7 +222,7 @@ main .content-personal .phone-number .manage-number {
 main .content-personal .phone-number .add-number,
 main .content-personal .phone-number .manage-number {
     position: absolute;
-    top: 75%;
+    top: 83%;
     right: 18%;
 }
 
@@ -207,11 +242,6 @@ main .content-personal a:hover {
     main .content-personal .verified-email,
     main .content-personal .phone-number {
         width: 730px;
-    }
-
-    main .content-personal .phone-number .add-number,
-    main .content-personal .phone-number .manage-number {
-        top: 77%;
     }
 
     main .content-personal .phone-number .add-number {
@@ -259,12 +289,17 @@ main .content-personal a:hover {
         width: 880px;
     }
 
+    main .content-personal .phone-number .add-number,
+    main .content-personal .phone-number .manage-number {
+        top: 85%;
+    }
+
     main .content-personal .phone-number .add-number {
-        left: 75%;
+        left: 78%;
     }
 
     main .content-personal .phone-number .manage-number {
-        left: 80%;
+        left: 85%;
     }
 }
 
@@ -278,20 +313,37 @@ main .content-personal a:hover {
     main .content-personal .last-name,
     main .content-personal .verified-email,
     main .content-personal .phone-number {
+        width: 850px;
+    }
+
+    main .content-personal .phone-number .add-number {
+        left: 73%;
+    }
+
+    main .content-personal .phone-number .manage-number {
+        left: 80%;
+    }
+}
+
+@media (max-width: 988px) {
+    main .content-personal .first-name,
+    main .content-personal .last-name,
+    main .content-personal .verified-email,
+    main .content-personal .phone-number {
         width: 650px;
     }
 
     main .content-personal .phone-number .add-number,
     main .content-personal .phone-number .manage-number {
-        top: 70%;
+        top: 78%;
     }
 
     main .content-personal .phone-number .add-number {
-        left: 68%;
+        left: 73%;
     }
 
     main .content-personal .phone-number .manage-number {
-        left: 75%;
+        left: 80%;
     }
 }
 
@@ -306,6 +358,36 @@ main .content-personal a:hover {
     main .text-personal {
         margin-left: 3%;
     }
+
+    main .content-personal .first-name,
+    main .content-personal .last-name,
+    main .content-personal .verified-email,
+    main .content-personal .phone-number {
+        width: 630px;
+    }
+
+    main .content-personal .phone-number .add-number,
+    main .content-personal .phone-number .manage-number {
+        top: 79%;
+    }
+}
+
+@media (max-width: 766px) {
+    main .text-personal {
+        margin-left: 3%;
+    }
+
+    main .content-personal .first-name,
+    main .content-personal .last-name,
+    main .content-personal .verified-email,
+    main .content-personal .phone-number {
+        width: 480px;
+    }
+
+    main .content-personal .phone-number .add-number,
+    main .content-personal .phone-number .manage-number {
+        top: 74%;
+    }
 }
 
 @media (max-width: 763px) {
@@ -314,11 +396,6 @@ main .content-personal a:hover {
     main .content-personal .verified-email,
     main .content-personal .phone-number {
         width: 450px;
-    }
-
-    main .content-personal .phone-number .add-number,
-    main .content-personal .phone-number .manage-number {
-        top: 67%;
     }
 
     main .content-personal .phone-number .add-number {
@@ -359,7 +436,7 @@ main .content-personal a:hover {
 @media (max-width: 518px) {
     main .content-personal .phone-number .add-number,
     main .content-personal .phone-number .manage-number {
-        top: 71%;
+        top: 75%;
     }
 }
 
@@ -412,11 +489,6 @@ main .content-personal a:hover {
 
     main .content-personal h6 {
         font-size: 19px;
-    }
-
-    main .content-personal .phone-number .add-number,
-    main .content-personal .phone-number .manage-number {
-        top: 70%;
     }
 }
 
