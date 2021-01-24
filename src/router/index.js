@@ -9,7 +9,7 @@ import Dashboard from '../views/pages/Dashboard.vue'
 import SearchReceiver from '../views/pages/SearchReceiver.vue'
 import History from '../views/pages/History.vue'
 import InputAmount from '../views/pages/InputAmount.vue'
-import PersonalInfo from '../views/pages/PersonalInfo.vue'
+import SettingsProfile from '../views/pages/SettingsProfile.vue'
 
 Vue.use(VueRouter)
 
@@ -62,9 +62,9 @@ const routes = [
         component: InputAmount
       },
       {
-        path: 'personal-info',
-        name: 'PersonalInfo',
-        component: PersonalInfo
+        path: 'settings-profile',
+        name: 'SettingsProfile',
+        component: SettingsProfile
       }
     ]
   }

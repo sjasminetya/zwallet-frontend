@@ -47,7 +47,7 @@
 import SideBar from '../../components/module/SideBar'
 import { mapActions, mapGetters } from 'vuex'
 export default {
-  name: 'PersonalInfo',
+  name: 'SettingsProfile',
   components: {
     SideBar
   },

@@ -25,7 +25,7 @@
 
             <div class="menu">
                 <span><i class="far fa-user"></i></span>
-                <router-link to="/page/personal-info">Profile</router-link>
+                <router-link to="/page/settings-profile">Profile</router-link>
             </div>
 
             <div class="menu-logout">
