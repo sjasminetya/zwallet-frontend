@@ -14,7 +14,13 @@
 
             <div class="menu">
                 <span><i class="fas fa-plus"></i></span>
-                <router-link to="/transfer/top-up">Top Up</router-link>
+                <router-link to="/page/dashboard" v-b-modal.modal-center>Top Up</router-link>
+                <b-modal id="modal-center" title="Top Up saldo" @ok="goTopup" @show="resetModal" @hidden="resetModal">
+                    <h6>Input amount</h6>
+                    <b-form-input v-model="balance" placeholder="Input amount" type="number" required></b-form-input>
+                    <h6>Input PIN</h6>
+                    <PincodeInput v-model="pin" placeholder="0" :length="6" required/>
+                </b-modal>
             </div>
 
             <div class="menu">
@@ -34,8 +40,40 @@
 </template>
 
 <script>
+import PincodeInput from 'vue-pincode-input'
+import { mapActions } from 'vuex'
 export default {
-  name: 'SideBar'
+  name: 'SideBar',
+  components: {
+    PincodeInput
+  },
+  data () {
+    return {
+      pin: '',
+      balance: ''
+    }
+  },
+  methods: {
+    ...mapActions(['userProfile', 'topup']),
+    goTopup () {
+      const payload = {
+        pin: this.pin,
+        balance: this.balance
+      }
+      this.topup(payload)
+        .then(() => {
+          this.$awn.success('success top up')
+          this.userProfile()
+        })
+    },
+    resetModal () {
+      this.pin = ''
+      this.balance = ''
+    }
+  },
+  mounted () {
+    this.userProfile()
+  }
 }
 </script>
 
@@ -72,7 +110,8 @@ aside .main-menu .menu span {
     margin-left: 40px;
 }
 
-aside .main-menu .menu a {
+aside .main-menu .menu a,
+aside .main-menu .menu h6 {
     color: #3a3d42;
     margin-left: 20px;
     padding-bottom: 70px;

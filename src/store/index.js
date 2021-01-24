@@ -18,7 +18,8 @@ export default new Vuex.Store({
     userFriends: [],
     searchName: [],
     profileFriends: [],
-    transfer: []
+    transfer: [],
+    topup: []
   },
   plugins: [createPersistedState()],
   mutations: {
@@ -52,6 +53,9 @@ export default new Vuex.Store({
     },
     set_transfer (state, payload) {
       state.transfer = payload
+    },
+    set_topup (state, payload) {
+      state.topup = payload
     }
   },
   actions: {
@@ -143,6 +147,17 @@ export default new Vuex.Store({
           })
       })
     },
+    topup (context, payload) {
+      return new Promise((resolve, reject) => {
+        axios.post(`${process.env.VUE_APP_URL_API}/topup`, payload)
+          .then(res => {
+            const result = res.data.result.message
+            context.commit('set_topup', result)
+            resolve(result)
+            console.log('topup', result)
+          })
+      })
+    },
     interceptorRequest (context) {
       axios.interceptors.request.use(function (config) {
         config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`
@@ -171,6 +186,20 @@ export default new Vuex.Store({
             Swal.fire({
               icon: 'error',
               title: 'email already exists',
+              showConfirmButton: false,
+              timer: 2000
+            })
+          } else if (error.response.data.err.error === 'pin wrong') {
+            Swal.fire({
+              icon: 'error',
+              title: 'PIN wrong',
+              showConfirmButton: false,
+              timer: 2000
+            })
+          } else if (error.response.data.err.error === 'you must create pin') {
+            Swal.fire({
+              icon: 'error',
+              title: 'You must create PIN',
               showConfirmButton: false,
               timer: 2000
             })

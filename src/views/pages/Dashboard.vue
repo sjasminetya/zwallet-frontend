@@ -13,9 +13,13 @@
                             <button type="submit" class="btn">
                                 <router-link to="/page/search-receiver"><i class="fas fa-arrow-up"></i>Transfer</router-link>
                             </button>
-                            <button type="submit" class="btn">
-                                <router-link to="/transfer/top-up"><i class="fas fa-plus"></i>Top Up</router-link>
-                            </button>
+                            <b-button v-b-modal.modal-1 class="btn topup"><i class="fas fa-plus"></i>Top Up</b-button>
+                            <b-modal id="modal-1" title="Top Up saldo" @ok="goTopup" @show="resetModal" @hidden="resetModal">
+                                <h6>Input amount</h6>
+                                <b-form-input v-model="balance" placeholder="Input amount" type="number" required></b-form-input>
+                                <h6>Input PIN</h6>
+                                <PincodeInput v-model="pin" placeholder="0" :length="6" required/>
+                            </b-modal>
                         </div>
                     </div>
 
@@ -87,15 +91,38 @@
 </template>
 
 <script>
+import PincodeInput from 'vue-pincode-input'
 import { mapActions, mapGetters } from 'vuex'
 import SideBar from '../../components/module/SideBar'
 export default {
   name: 'Dashboard',
   components: {
-    SideBar
+    SideBar,
+    PincodeInput
+  },
+  data () {
+    return {
+      pin: '',
+      balance: ''
+    }
   },
   methods: {
-    ...mapActions(['userProfile', 'getTransactionHistory'])
+    ...mapActions(['userProfile', 'getTransactionHistory', 'topup']),
+    goTopup () {
+      const payload = {
+        pin: this.pin,
+        balance: this.balance
+      }
+      this.topup(payload)
+        .then(() => {
+          this.$awn.success('success top up')
+          this.userProfile()
+        })
+    },
+    resetModal () {
+      this.pin = ''
+      this.balance = ''
+    }
   },
   computed: {
     ...mapGetters(['profile', 'transactionHistory'])
@@ -187,12 +214,19 @@ main .main-top .button-right button {
     border-radius: 10px;
 }
 
+main .main-top .button-right button:focus {
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #FFFFFF;
+}
+
 main .main-top .button-right button a {
     color: #fff;
     text-decoration: none;
 }
 
-main .main-top .button-right button a i{
+main .main-top .button-right button i{
     margin-right: 10px;
 }
 
