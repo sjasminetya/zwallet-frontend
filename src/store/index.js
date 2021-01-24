@@ -158,6 +158,18 @@ export default new Vuex.Store({
           })
       })
     },
+    updateProfile (context, payload) {
+      return new Promise((resolve, reject) => {
+        axios.patch(`${process.env.VUE_APP_URL_API}/users/${localStorage.getItem('id')}`, payload)
+          .then(res => {
+            console.log('data update', res.data.result)
+            resolve(res)
+          })
+          .catch(err => {
+            reject(err)
+          })
+      })
+    },
     interceptorRequest (context) {
       axios.interceptors.request.use(function (config) {
         config.headers.Authorization = `Bearer ${localStorage.getItem('token')}`
@@ -181,6 +193,7 @@ export default new Vuex.Store({
         }
         return response
       }, function (error) {
+        console.log(error.response)
         if (error.response.data.statusCode === 400) {
           if (error.response.data.err.error === 'Email already exists') {
             Swal.fire({

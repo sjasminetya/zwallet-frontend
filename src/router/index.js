@@ -9,6 +9,7 @@ import Dashboard from '../views/pages/Dashboard.vue'
 import SearchReceiver from '../views/pages/SearchReceiver.vue'
 import History from '../views/pages/History.vue'
 import InputAmount from '../views/pages/InputAmount.vue'
+import PersonalInfo from '../views/pages/PersonalInfo.vue'
 
 Vue.use(VueRouter)
 
@@ -59,6 +60,11 @@ const routes = [
         path: 'input-amount',
         name: 'InputAmount',
         component: InputAmount
+      },
+      {
+        path: 'personal-info',
+        name: 'PersonalInfo',
+        component: PersonalInfo
       }
     ]
   }

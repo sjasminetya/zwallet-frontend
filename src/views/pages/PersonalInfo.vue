@@ -1,0 +1,425 @@
+<template>
+    <div>
+        <div class="container">
+            <section class="main-container">
+                <SideBar/>
+                <main>
+                    <div class="section-profile">
+                        <div class="user-img">
+                            <img :src="profile.image" alt="user profile">
+                        </div>
+                        <input type="file" ref="file" id="file" @change="update">
+                        <label for="file" class="text-edit">
+                            <span><i class="fas fa-pen"></i></span>
+                            <h5>Edit</h5>
+                        </label>
+
+                        <div class="name-phone-profile">
+                            <h6>{{profile.firstName}} {{profile.lastName}}</h6>
+                            <p>{{profile.phoneNumber}}</p>
+                        </div>
+                    </div>
+
+                    <div class="button-profile">
+                        <div class="btn btn-personal">
+                            <router-link to="#">Personal Information<i class="fas fa-arrow-right"></i></router-link>
+                        </div>
+
+                        <div class="btn btn-change-password">
+                            <router-link to="#">Change Password<i class="fas fa-arrow-right"></i></router-link>
+                        </div>
+
+                        <div class="btn btn-change-pin">
+                            <router-link to="#">Change PIN<i class="fas fa-arrow-right"></i></router-link>
+                        </div>
+
+                        <div class="btn btn-logout">
+                            <router-link to="#">Logout</router-link>
+                        </div>
+                    </div>
+                </main>
+            </section>
+        </div>
+    </div>
+</template>
+
+<script>
+import SideBar from '../../components/module/SideBar'
+import { mapActions, mapGetters } from 'vuex'
+export default {
+  name: 'PersonalInfo',
+  components: {
+    SideBar
+  },
+  data () {
+    return {
+      image: ''
+    }
+  },
+  methods: {
+    ...mapActions(['userProfile', 'updateProfile']),
+    update () {
+      this.image = this.$refs.file.files[0]
+      const formData = new FormData()
+      formData.append('image', this.image)
+      this.updateProfile(formData)
+        .then(() => {
+          this.$awn.success('success update image')
+          this.userProfile()
+        })
+    }
+  },
+  computed: {
+    ...mapGetters(['profile'])
+  },
+  mounted () {
+    this.userProfile()
+  }
+}
+</script>
+
+<style scoped>
+.main-container {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 0;
+    margin-top: 30px;
+}
+
+main {
+    background-color: #fff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 25px;
+    margin-left: 10px;
+
+    height: 710px;
+    width: 800px;
+    position: relative;
+}
+
+main .section-profile {
+    display: flex;
+    flex-direction: column;
+}
+
+main .section-profile .user-img img{
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-top: 5%;
+    margin-left: 45%;
+}
+
+main .section-profile input {
+  display: none;
+}
+
+main .section-profile .text-edit span {
+    position: absolute;
+    top: 22%;
+    left: 47%;
+    color: #000;
+}
+
+main .section-profile .text-edit h5 {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 27px;
+    text-align: center;
+
+    color: #7A7886;
+    margin-top: 2%;
+    margin-left: 30px;
+    margin-bottom: 3%;
+}
+
+main .section-profile .name-phone-profile {
+    display: flex;
+    flex-direction: column;
+}
+
+main .section-profile .name-phone-profile h6 {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+
+    color: #4D4B57;
+}
+
+main .section-profile .name-phone-profile p {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 27px;
+    text-align: center;
+
+    color: #7A7886;
+}
+
+main .button-profile {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+main .button-profile .btn-personal,
+main .button-profile .btn-change-password,
+main .button-profile .btn-change-pin,
+main .button-profile .btn-logout {
+    width: 433px;
+    height: 64px;
+    margin: 15px auto;
+    padding-top: 15px;
+
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 28px;
+    color: #4D4B57;
+
+    background: #E5E8ED;
+    border-radius: 10px;
+}
+
+main .button-profile .btn-personal a,
+main .button-profile .btn-change-password a,
+main .button-profile .btn-change-pin a,
+main .button-profile .btn-logout a {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 28px;
+    color: #4D4B57;
+    margin-left: -55%;
+}
+
+main .button-profile .btn-change-password a {
+    margin-left: -60%;
+}
+
+main .button-profile .btn-change-pin a {
+    margin-left: -69%;
+}
+
+main .button-profile .btn-logout a {
+    margin-left: -81%;
+}
+
+main .button-profile .btn-personal a:hover,
+main .button-profile .btn-change-password a:hover,
+main .button-profile .btn-change-pin a:hover,
+main .button-profile .btn-logout a:hover {
+    text-decoration: none;
+}
+
+main .button-profile .btn-personal  i {
+    position: absolute;
+    right: 28%;
+    top: 11%;
+}
+
+main .button-profile .btn-change-password i {
+    position: absolute;
+    right: 28%;
+    top: 36%;
+}
+
+main .button-profile .btn-change-pin i {
+    position: absolute;
+    right: 28%;
+    top: 60%;
+}
+
+@media (max-width: 1300px) {
+    main {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1199px) {
+    main .section-profile .text-edit span {
+        top: 21%;
+    }
+}
+
+@media (max-width: 1100px) {
+    .main-container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    main {
+        width: 100%;
+        margin: 10px auto;
+    }
+
+    main .section-profile .text-edit span {
+        top: 23.5%;
+    }
+
+    main .button-profile .btn-personal  i,
+    main .button-profile .btn-change-password i,
+    main .button-profile .btn-change-pin i  {
+        left: 65%;
+    }
+}
+
+@media (max-width: 992px) {
+    main .section-profile .text-edit span {
+        top: 21.5%;
+        left: 46%;
+    }
+
+    main .button-profile .btn-personal  i,
+    main .button-profile .btn-change-password i,
+    main .button-profile .btn-change-pin i {
+        right: 0%;
+    }
+}
+
+@media (max-width: 768px) {
+    main .section-profile .text-edit span {
+        top: 19%;
+    }
+}
+
+@media (max-width: 442px) {
+    main .section-profile .text-edit span {
+        top: 18%;
+        left: 44%;
+    }
+
+    main .button-profile .btn-personal,
+    main .button-profile .btn-change-password,
+    main .button-profile .btn-change-pin,
+    main .button-profile .btn-logout {
+        width: 380px;
+        margin: 15px 10px;
+    }
+
+    main .button-profile .btn-personal a,
+    main .button-profile .btn-change-password a,
+    main .button-profile .btn-change-pin a,
+    main .button-profile .btn-logout a {
+        margin-left: -150px;
+    }
+
+    main .button-profile .btn-change-password a {
+        margin-left: -180px;
+    }
+
+    main .button-profile .btn-change-pin a {
+        margin-left: -230px;
+    }
+
+    main .button-profile .btn-logout a {
+        margin-left: -260px;
+    }
+}
+
+/* Pixel 2/Pixel 2 XL/Iphone(6/7/8) Plus */
+@media (max-width: 415px) {
+   main .section-profile .text-edit span {
+        top: 18%;
+        left: 44%;
+    }
+
+    main .button-profile .btn-personal,
+    main .button-profile .btn-change-password,
+    main .button-profile .btn-change-pin,
+    main .button-profile .btn-logout {
+        width: 350px;
+        margin: 15px 10px;
+    }
+
+    main .button-profile .btn-personal a,
+    main .button-profile .btn-change-password a,
+    main .button-profile .btn-change-pin a,
+    main .button-profile .btn-logout a {
+        margin-left: -150px;
+    }
+
+    main .button-profile .btn-change-password a {
+        margin-left: -180px;
+    }
+
+    main .button-profile .btn-change-pin a {
+        margin-left: -230px;
+    }
+
+    main .button-profile .btn-logout a {
+        margin-left: -260px;
+    }
+}
+
+/* Galaxy Note 3/Galaxy S5/Iphone(6/7/8)/Iphone X */
+@media (max-width: 379px) {
+    main .button-profile .btn-personal,
+    main .button-profile .btn-change-password,
+    main .button-profile .btn-change-pin,
+    main .button-profile .btn-logout {
+        width: 310px;
+        margin: 15px 10px;
+    }
+
+    main .button-profile .btn-personal a,
+    main .button-profile .btn-change-password a,
+    main .button-profile .btn-change-pin a,
+    main .button-profile .btn-logout a {
+        margin-left: -130px;
+    }
+
+    main .button-profile .btn-change-password a {
+        margin-left: -150px;
+    }
+
+    main .button-profile .btn-change-pin a {
+        margin-left: -200px;
+    }
+
+    main .button-profile .btn-logout a {
+        margin-left: -230px;
+    }
+}
+
+/* iphone 4/5/SE */
+@media (max-width: 335px) {
+    main .section-profile .text-edit span {
+        top: 17.5%;
+        left: 44%;
+    }
+
+    main .button-profile .btn-personal,
+    main .button-profile .btn-change-password,
+    main .button-profile .btn-change-pin,
+    main .button-profile .btn-logout {
+        width: 285px;
+        margin: 15px 10px;
+    }
+
+    main .button-profile .btn-personal a,
+    main .button-profile .btn-change-password a,
+    main .button-profile .btn-change-pin a,
+    main .button-profile .btn-logout a {
+        margin-left: -100px;
+    }
+
+    main .button-profile .btn-change-password a {
+        margin-left: -120px;
+    }
+
+    main .button-profile .btn-change-pin a {
+        margin-left: -170px;
+    }
+
+    main .button-profile .btn-logout a {
+        margin-left: -200px;
+    }
+}
+</style>
