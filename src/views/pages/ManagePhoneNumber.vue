@@ -177,13 +177,13 @@ main .manage-phone-number-main .content-manage-phone-number .manage-number .icon
     color: #BBBBBE;
 }
 
-@media (max-width: 1300px) {
+@media (max-width: 1194px) {
     main .manage-phone-number-main .content-manage-phone-number .manage-number {
-        width: 650px;
+        width: 600px;
     }
 
-    main .manage-phone-number-main .content-manage-phone-number .manage-number span {
-        left: 80%;
+    main .manage-phone-number-main .content-manage-phone-number .manage-number .icon-trash {
+        margin-left: 350px;
     }
 }
 
@@ -203,66 +203,72 @@ main .manage-phone-number-main .content-manage-phone-number .manage-number .icon
         width: 880px;
     }
 
-    main .manage-phone-number-main .content-manage-phone-number .manage-number span {
-        left: 88%;
+    main .manage-phone-number-main .content-manage-phone-number .manage-number .icon-trash {
+        margin-left: 650px;
     }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 990px) {
     main .manage-phone-number-main .manage-phone-number {
         margin-top: 10%;
     }
 
     main .manage-phone-number-main .text-manage-phone-number {
-        margin-left: 3%;
         margin-top: 5%;
+        margin-left: 3%;
     }
 
     main .manage-phone-number-main .content-manage-phone-number .manage-number {
-        margin-top: -5%;
-        width: 650px;
+        width: 630px;
     }
 
-    main .manage-phone-number-main .content-manage-phone-number .manage-number span {
-        left: 85%;
+    main .manage-phone-number-main .content-manage-phone-number .manage-number .icon-trash {
+        margin-left: 410px;
     }
 }
 
 @media (max-width: 768px) {
-    main .manage-phone-number-main .manage-phone-number {
-        margin-top: 10%;
-    }
-
-    main .manage-phone-number-main .text-manage-phone-number {
-        margin-top: 5%;
-        margin-left: 3%;
-    }
-
     main .manage-phone-number-main .content-manage-phone-number .manage-number {
         width: 480px;
     }
 
-    main .manage-phone-number-main .content-manage-phone-number .manage-number span {
-        left: 80%;
+    main .manage-phone-number-main .content-manage-phone-number .manage-number .icon-trash {
+        margin-left: 270px;
     }
 }
 
 @media (max-width: 576px) {
-    main .manage-phone-number-main .manage-phone-number {
-        margin-top: 10%;
-    }
-
     main .manage-phone-number-main .text-manage-phone-number {
         margin-top: 10%;
         top: 2%;
     }
 
     main .manage-phone-number-main .content-manage-phone-number .manage-number {
-        width: 420px;
+        width: 460px;
     }
 
-    main .manage-phone-number-main .content-manage-phone-number .manage-number span {
-        left: 75%;
+    main .manage-phone-number-main .content-manage-phone-number .manage-number .icon-trash {
+        margin-left: 250px;
+    }
+}
+
+@media (max-width: 516px) {
+    main .manage-phone-number-main .content-manage-phone-number .manage-number {
+        width: 430px;
+    }
+
+    main .manage-phone-number-main .content-manage-phone-number .manage-number .icon-trash {
+        margin-left: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    main .manage-phone-number-main .content-manage-phone-number .manage-number {
+        width: 400px;
+    }
+
+    main .manage-phone-number-main .content-manage-phone-number .manage-number .icon-trash {
+        margin-left: 190px;
     }
 }
 
@@ -283,8 +289,28 @@ main .manage-phone-number-main .content-manage-phone-number .manage-number .icon
         width: 370px;
     }
 
-    main .manage-phone-number-main .content-manage-phone-number .manage-number span {
-        left: 75%;
+    main .manage-phone-number-main .content-manage-phone-number .manage-number .icon-trash {
+        margin-left: 160px;
+    }
+}
+
+@media (max-width: 422px) {
+    main .manage-phone-number-main .content-manage-phone-number .manage-number {
+        width: 360px;
+    }
+
+    main .manage-phone-number-main .content-manage-phone-number .manage-number .icon-trash {
+        margin-left: 150px;
+    }
+}
+
+@media (max-width: 404px) {
+    main .manage-phone-number-main .content-manage-phone-number .manage-number {
+        width: 330px;
+    }
+
+    main .manage-phone-number-main .content-manage-phone-number .manage-number .icon-trash {
+        margin-left: 120px;
     }
 }
 
@@ -296,28 +322,24 @@ main .manage-phone-number-main .content-manage-phone-number .manage-number .icon
     main .manage-phone-number-main .text-manage-phone-number {
         margin-top: 10%;
     }
-
-    main .manage-phone-number-main .content-manage-phone-number .manage-number {
-        width: 350px;
-    }
 }
 
-/* Galaxy Note 3/Galaxy S5/Iphone(6/7/8)/Iphone X */
 @media (max-width: 379px) {
-    main .manage-phone-number-main .manage-phone-number {
-        margin-top: 10%;
-    }
-
-    main .manage-phone-number-main .text-manage-phone-number {
-        margin-top: 10%;
-    }
-
     main .manage-phone-number-main .content-manage-phone-number .manage-number {
         width: 310px;
     }
 }
 
-/* iphone 4/5/SE */
+@media (max-width: 352px) {
+    main .manage-phone-number-main .content-manage-phone-number .manage-number {
+        width: 280px;
+    }
+
+    main .manage-phone-number-main .content-manage-phone-number .manage-number .icon-trash {
+        margin-left: 70px;
+    }
+}
+
 @media (max-width: 331px) {
     main .manage-phone-number-main .content-manage-phone-number .manage-number {
         width: 250px;

@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="btn btn-change-pin">
-                            <router-link to="#">Change PIN<i class="fas fa-arrow-right"></i></router-link>
+                            <router-link to="/page/change-pin">Change PIN<i class="fas fa-arrow-right"></i></router-link>
                         </div>
 
                         <div class="btn btn-logout">

@@ -13,6 +13,7 @@ import SettingsProfile from '../views/pages/SettingsProfile.vue'
 import PersonalInformation from '../views/pages/PersonalInformation.vue'
 import ManagePhoneNumber from '../views/pages/ManagePhoneNumber.vue'
 import ChangePassword from '../views/pages/ChangePassword.vue'
+import ChangePin from '../views/pages/ChangePin.vue'
 import store from '../store/index'
 
 Vue.use(VueRouter)
@@ -93,6 +94,12 @@ const routes = [
         path: 'change-password',
         name: 'ChangePassword',
         component: ChangePassword,
+        meta: { requiresAuth: true }
+      },
+      {
+        path: 'change-pin',
+        name: 'ChangePin',
+        component: ChangePin,
         meta: { requiresAuth: true }
       }
     ]
