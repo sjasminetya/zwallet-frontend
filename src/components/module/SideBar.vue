@@ -2,19 +2,19 @@
   <div>
     <aside>
         <div class="main-menu">
-            <div class="menu">
+            <router-link to="/page/dashboard" class="menu">
                 <span><i class="fas fa-th-large"></i></span>
-                <router-link to="/page/dashboard" class="dashboard">Dashboard</router-link>
-            </div>
+                <div class="menu-sidebar">Dashboard</div>
+            </router-link>
 
-            <div class="menu">
+            <router-link to="/page/search-receiver" class="menu">
                 <span><i class="fas fa-arrow-up"></i></span>
-                <router-link to="/page/search-receiver">Transfer</router-link>
-            </div>
+                <div class="menu-sidebar">Transfer</div>
+            </router-link>
 
             <div class="menu">
-                <span><i class="fas fa-plus"></i></span>
-                <router-link to="/page/dashboard" v-b-modal.modal-center>Top Up</router-link>
+                <span v-b-modal.modal-center><i class="fas fa-plus"></i></span>
+                <div class="menu-sidebar" v-b-modal.modal-center>Top Up</div>
                 <b-modal id="modal-center" title="Top Up saldo" @ok="goTopup" @show="resetModal" @hidden="resetModal">
                     <h6>Input amount</h6>
                     <b-form-input v-model="balance" placeholder="Input amount" type="number" required></b-form-input>
@@ -23,15 +23,15 @@
                 </b-modal>
             </div>
 
-            <div class="menu">
+            <router-link to="/page/settings-profile" class="menu">
                 <span><i class="far fa-user"></i></span>
-                <router-link to="/page/settings-profile">Profile</router-link>
-            </div>
+                <div class="menu-sidebar">Profile</div>
+            </router-link>
 
-            <div class="menu-logout">
+            <div class="menu-logout" @click.prevent="goLogout">
                 <div class="menu">
                     <span><i class="fas fa-sign-out-alt"></i></span>
-                    <div class="logout" @click.prevent="goLogout">Logout</div>
+                    <div class="logout">Logout</div>
                 </div>
             </div>
         </div>
@@ -103,7 +103,7 @@ aside .main-menu {
 
 aside .main-menu .menu {
     margin-bottom: 50px;
-
+    display: flex;
     font-style: normal;
     font-weight: normal;
     font-size: 18px;
@@ -117,15 +117,23 @@ aside .main-menu .menu span {
     margin-left: 40px;
 }
 
-aside .main-menu .menu a,
+aside .main-menu .menu .menu-sidebar,
 aside .main-menu .menu h6 {
     color: #3a3d42;
     margin-left: 20px;
-    padding-bottom: 70px;
+    padding-bottom: 20px;
+}
+
+aside .main-menu .menu .menu-sidebar:focus {
+    outline: none;
 }
 
 aside .main-menu .menu-logout .menu {
     display: flex;
+}
+
+aside .main-menu .menu:hover {
+    text-decoration: none;
 }
 
 aside .main-menu .menu-logout .menu .logout {
@@ -188,7 +196,7 @@ aside .main-menu .menu-logout {
         flex-direction: row;
     }
 
-    aside .main-menu .menu a,
+    aside .main-menu .menu .menu-sidebar,
     aside .main-menu .menu-logout .menu .logout {
         display: none;
     }
@@ -278,10 +286,6 @@ aside .main-menu .menu-logout {
         margin-top: -15px;
     }
 
-    aside .main-menu .menu a {
-        display: none;
-    }
-
     aside .main-menu .menu span {
         margin-left: 30px;
     }
@@ -299,10 +303,6 @@ aside .main-menu .menu-logout {
 
     aside .main-menu .menu {
         margin-top: -15px;
-    }
-
-    aside .main-menu .menu a {
-        display: none;
     }
 
     aside .main-menu .menu span {

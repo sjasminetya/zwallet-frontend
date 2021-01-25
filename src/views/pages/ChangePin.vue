@@ -16,24 +16,11 @@
 
                         <div class="content-change-pin">
 
-                            <form method="get" class="digit-group">
-
-                                <input type="text" name="digit-1">
-
-                                <input type="text" name="digit-2">
-
-                                <input type="text" name="digit-3">
-
-                                <input type="text" name="digit-4">
-
-                                <input type="text" name="digit-5">
-
-                                <input type="text" name="digit-6">
-
+                            <form @submit.prevent="update" class="digit-group">
+                                <PincodeInput v-model="pin" placeholder="0" :length="6" required/>
                                 <div class="text-center mb-5">
-                                <button type="submit" class="btn">Confirm</button>
+                                    <Button type="submit" name="Confirm"/>
                                 </div>
-
                             </form>
 
                         </div>
@@ -45,11 +32,34 @@
 </template>
 
 <script>
+import Button from '../../components/base/Button'
+import PincodeInput from 'vue-pincode-input'
 import SideBar from '../../components/module/SideBar'
+import { mapActions } from 'vuex'
 export default {
   name: 'ChangePin',
   components: {
-    SideBar
+    SideBar,
+    PincodeInput,
+    Button
+  },
+  data () {
+    return {
+      pin: ''
+    }
+  },
+  methods: {
+    ...mapActions(['updateProfile']),
+    update () {
+      const payload = {
+        pin: this.pin
+      }
+      this.updateProfile(payload)
+        .then(() => {
+          this.$awn.success('success update')
+          this.$router.push('/page/personal-info')
+        })
+    }
   }
 }
 </script>
