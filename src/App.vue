@@ -27,4 +27,8 @@ body, html {
   font-family: 'Nunito Sans', sans-serif;
   font-size: 16px;
 }
+
+#app {
+  background: #E5E5E5;
+}
 </style>

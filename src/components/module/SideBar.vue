@@ -31,7 +31,7 @@
             <div class="menu-logout">
                 <div class="menu">
                     <span><i class="fas fa-sign-out-alt"></i></span>
-                    <a class="logout" @click.prevent="goLogout">Logout</a>
+                    <div class="logout" @click.prevent="goLogout">Logout</div>
                 </div>
             </div>
         </div>
@@ -54,7 +54,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['userProfile', 'topup']),
+    ...mapActions(['userProfile', 'topup', 'logout']),
     goTopup () {
       const payload = {
         pin: this.pin,
@@ -69,6 +69,13 @@ export default {
     resetModal () {
       this.pin = ''
       this.balance = ''
+    },
+    goLogout () {
+      this.logout()
+        .then(() => {
+          this.$awn.success('Success logout')
+          this.$router.push('/auth/login')
+        })
     }
   },
   mounted () {
@@ -117,6 +124,14 @@ aside .main-menu .menu h6 {
     padding-bottom: 70px;
 }
 
+aside .main-menu .menu-logout .menu {
+    display: flex;
+}
+
+aside .main-menu .menu-logout .menu .logout {
+    margin-left: 20px;
+}
+
 aside .main-menu .menu a:hover {
     text-decoration: none;
     color: #3a3d42;
@@ -157,7 +172,7 @@ aside .main-menu .menu-logout {
     }
 
     aside .main-menu .menu-logout {
-        left: 1%;
+        left: 0%;
         top: 55%;
     }
 }
@@ -173,16 +188,17 @@ aside .main-menu .menu-logout {
         flex-direction: row;
     }
 
-    aside .main-menu .menu a {
-        margin-left: 10px;
+    aside .main-menu .menu a,
+    aside .main-menu .menu-logout .menu .logout {
+        display: none;
     }
 
     aside .main-menu .menu span {
-        margin-left: 15px;
+        margin-left: 85px;
     }
 
     aside .main-menu .menu-logout {
-        left: 30px;
+        left: 0px;
         bottom: 0px;
     }
 }
@@ -192,27 +208,45 @@ aside .main-menu .menu-logout {
         height: 150px;
     }
 
-    aside .main-menu .menu a {
-        display: none;
-    }
-
     aside .main-menu .menu span {
         margin-left: 70px;
     }
 
     aside .main-menu .menu-logout {
-        margin-top: -30px;
-        margin-left: 299px;
+        margin-top: -33px;
+        margin-left: 350px;
     }
 }
 
-@media (max-width: 461px) {
+@media (max-width: 520px) {
+    aside .main-menu .menu span {
+        margin-left: 60px;
+    }
+
+    aside .main-menu .menu-logout {
+        margin-left: 340px;
+    }
+}
+
+@media (max-width: 492px) {
     aside .main-menu .menu span {
         margin-left: 55px;
     }
 
     aside .main-menu .menu-logout {
+        margin-left: 300px;
+    }
+}
+
+@media (max-width: 461px) {
+    aside .main-menu .menu-logout {
         margin-left: 270px;
+    }
+}
+
+@media (max-width: 430px) {
+    aside .main-menu .menu span {
+        margin-left: 50px;
     }
 }
 
@@ -225,10 +259,6 @@ aside .main-menu .menu-logout {
         margin-top: -15px;
     }
 
-    aside .main-menu .menu a {
-        display: none;
-    }
-
     aside .main-menu .menu span {
         margin-left: 40px;
     }
@@ -236,12 +266,6 @@ aside .main-menu .menu-logout {
     aside .main-menu .menu-logout {
         margin-top: -5px;
         margin-left: 260px;
-    }
-}
-
-@media (max-width: 393px) {
-    aside .main-menu .menu span {
-        margin-left: 30px;
     }
 }
 

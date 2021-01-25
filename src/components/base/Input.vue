@@ -1,6 +1,6 @@
 <template>
     <div>
-        <input :id="id" :type="type" :value="value" :placeholder="placeHolder" @input="$emit('input', $event.target.value)">
+        <input :id="id" :value="value" :placeholder="placeHolder" @input="$emit('input', $event.target.value)">
     </div>
 </template>
 
@@ -8,7 +8,6 @@
 export default {
   name: 'Input',
   props: {
-    type: String,
     placeHolder: String,
     value: String,
     id: String

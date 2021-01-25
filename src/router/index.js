@@ -12,6 +12,7 @@ import InputAmount from '../views/pages/InputAmount.vue'
 import SettingsProfile from '../views/pages/SettingsProfile.vue'
 import PersonalInformation from '../views/pages/PersonalInformation.vue'
 import ManagePhoneNumber from '../views/pages/ManagePhoneNumber.vue'
+import ChangePassword from '../views/pages/ChangePassword.vue'
 import store from '../store/index'
 
 Vue.use(VueRouter)
@@ -85,7 +86,14 @@ const routes = [
       {
         path: 'manage-phone-number',
         name: 'ManagePhoneNumber',
-        component: ManagePhoneNumber
+        component: ManagePhoneNumber,
+        meta: { requiresAuth: true }
+      },
+      {
+        path: 'change-password',
+        name: 'ChangePassword',
+        component: ChangePassword,
+        meta: { requiresAuth: true }
       }
     ]
   }

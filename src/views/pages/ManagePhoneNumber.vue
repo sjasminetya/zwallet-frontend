@@ -23,7 +23,7 @@
                                 </div>
                             </div>
 
-                            <div class="manage-number mb-5" v-for="(data, index) in number" :key="index">
+                            <div class="manage-number" v-for="(data, index) in number" :key="index">
                                 <div class="primary">
                                     <p>Secondary</p>
                                     <h6>{{data.phoneNumber}}</h6>
@@ -153,7 +153,7 @@ main .manage-phone-number-main .content-manage-phone-number .manage-number {
     height: 92px;
     margin-left: 2%;
     margin-top: 2%;
-    margin-bottom: 10%;
+    margin-bottom: 0%;
     padding-left: 3%;
     padding-top: 1.5%;
 
@@ -168,9 +168,11 @@ main .manage-phone-number-main .content-manage-phone-number .manage-number .prim
 }
 
 main .manage-phone-number-main .content-manage-phone-number .manage-number .icon-trash {
-    margin-top: 3%;
-    margin-left: 64%;
     cursor: pointer;
+    float: right;
+    margin-left: 500px;
+    padding-top: .3em;
+    line-height: 3em;
 
     color: #BBBBBE;
 }

@@ -26,7 +26,7 @@
                         </div>
 
                         <div class="btn btn-change-password">
-                            <router-link to="#">Change Password<i class="fas fa-arrow-right"></i></router-link>
+                            <router-link to="/page/change-password">Change Password<i class="fas fa-arrow-right"></i></router-link>
                         </div>
 
                         <div class="btn btn-change-pin">
@@ -34,7 +34,7 @@
                         </div>
 
                         <div class="btn btn-logout">
-                            <router-link to="#">Logout</router-link>
+                            <div @click.prevent="goLogout">Logout</div>
                         </div>
                     </div>
                 </main>
@@ -57,7 +57,7 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['userProfile', 'updateProfile']),
+    ...mapActions(['userProfile', 'updateProfile', 'logout']),
     update () {
       this.image = this.$refs.file.files[0]
       const formData = new FormData()
@@ -66,6 +66,13 @@ export default {
         .then(() => {
           this.$awn.success('success update image')
           this.userProfile()
+        })
+    },
+    goLogout () {
+      this.logout()
+        .then(() => {
+          this.$awn.success('Success logout')
+          this.$router.push('/auth/login')
         })
     }
   },
@@ -340,6 +347,10 @@ main .button-profile .btn-change-pin i {
 }
 
 @media (max-width: 415px) {
+    main .section-profile .user-img img{
+        margin-left: 35%;
+    }
+
    main .section-profile .text-edit span {
         top: 18%;
         left: 44%;
@@ -373,7 +384,6 @@ main .button-profile .btn-change-pin i {
     }
 }
 
-/* Galaxy Note 3/Galaxy S5/Iphone(6/7/8)/Iphone X */
 @media (max-width: 379px) {
     main .button-profile .btn-personal,
     main .button-profile .btn-change-password,
@@ -403,8 +413,7 @@ main .button-profile .btn-change-pin i {
     }
 }
 
-/* iphone 4/5/SE */
-@media (max-width: 335px) {
+@media (max-width: 348px) {
     main .section-profile .text-edit span {
         top: 17.5%;
         left: 44%;
@@ -435,6 +444,19 @@ main .button-profile .btn-change-pin i {
 
     main .button-profile .btn-logout a {
         margin-left: -200px;
+    }
+}
+
+@media (max-width: 320px) {
+    main .section-profile .user-img img{
+        margin-left: 32%;
+    }
+
+    main .button-profile .btn-personal,
+    main .button-profile .btn-change-password,
+    main .button-profile .btn-change-pin,
+    main .button-profile .btn-logout {
+        width: 270px;
     }
 }
 </style>
