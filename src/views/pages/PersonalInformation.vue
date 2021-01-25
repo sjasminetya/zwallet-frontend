@@ -56,7 +56,7 @@
                                         </div>
                                     </form>
                                 </b-modal>
-                                <router-link to="/profile/manage-phone-number" class="manage-number">Manage</router-link>
+                                <router-link to="/page/manage-phone-number" class="manage-number">Manage</router-link>
                             </div>
                         </div>
                     </div>
@@ -102,12 +102,13 @@ export default {
         .then((res) => {
           console.log(res)
           this.$awn.success('success add phone number')
-          this.userProfile()
+          this.$router.push('/page/manage-phone-number')
         })
     },
     resetModal () {
       this.firstName = ''
       this.lastName = ''
+      this.phoneNumber = ''
     }
   },
   computed: {

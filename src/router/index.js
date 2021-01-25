@@ -11,6 +11,7 @@ import History from '../views/pages/History.vue'
 import InputAmount from '../views/pages/InputAmount.vue'
 import SettingsProfile from '../views/pages/SettingsProfile.vue'
 import PersonalInformation from '../views/pages/PersonalInformation.vue'
+import ManagePhoneNumber from '../views/pages/ManagePhoneNumber.vue'
 import store from '../store/index'
 
 Vue.use(VueRouter)
@@ -80,6 +81,11 @@ const routes = [
         name: 'PersonalInformation',
         component: PersonalInformation,
         meta: { requiresAuth: true }
+      },
+      {
+        path: 'manage-phone-number',
+        name: 'ManagePhoneNumber',
+        component: ManagePhoneNumber
       }
     ]
   }

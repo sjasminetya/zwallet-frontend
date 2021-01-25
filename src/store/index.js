@@ -58,14 +58,14 @@ export default new Vuex.Store({
     set_topup (state, payload) {
       state.topup = payload
     },
-    set_add_phone (state, payload) {
+    set_phone_number (state, payload) {
       state.phoneNumber = payload
     },
     remove_token (state) {
       state.token = null
-      state.id = null
     },
     remove (state) {
+      state.id = null
       state.user = {}
       state.userLogin = []
       state.transactionHistory = []
@@ -74,6 +74,9 @@ export default new Vuex.Store({
       state.profileFriends = []
       state.transfer = []
       state.topup = []
+      state.phoneNumber = []
+    },
+    remove_number (state) {
       state.phoneNumber = []
     }
   },
@@ -200,8 +203,31 @@ export default new Vuex.Store({
         axios.post(`${process.env.VUE_APP_URL_API}/phone-number`, payload)
           .then(res => {
             const result = res.data.result.message
+            context.commit('set_phone_number', result)
             console.log('add phone number', result)
             resolve(result)
+          })
+      })
+    },
+    getPhoneNumber (context, payload) {
+      return new Promise((resolve, reject) => {
+        axios.get(`${process.env.VUE_APP_URL_API}/phone-number/user/${localStorage.getItem('id')}`, payload)
+          .then(res => {
+            const result = res.data.result
+            resolve(result)
+            context.commit('set_phone_number', result)
+            console.log('get number', result)
+          })
+      })
+    },
+    deletePhoneNumber (context, payload) {
+      return new Promise((resolve, reject) => {
+        axios.delete(`${process.env.VUE_APP_URL_API}/phone-number/${payload}`)
+          .then(res => {
+            resolve(res)
+          })
+          .catch(err => {
+            console.log(err)
           })
       })
     },
@@ -309,6 +335,9 @@ export default new Vuex.Store({
     },
     transferToFriend (state) {
       return state.profileFriends
+    },
+    number (state) {
+      return state.phoneNumber
     }
   },
   modules: {
