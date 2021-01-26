@@ -20,7 +20,8 @@ export default new Vuex.Store({
     profileFriends: [],
     transfer: [],
     topup: [],
-    phoneNumber: []
+    phoneNumber: [],
+    pagination: []
   },
   plugins: [createPersistedState()],
   mutations: {
@@ -61,6 +62,9 @@ export default new Vuex.Store({
     set_phone_number (state, payload) {
       state.phoneNumber = payload
     },
+    set_pagination (state, payload) {
+      state.pagination = payload
+    },
     remove_token (state) {
       state.token = null
     },
@@ -75,6 +79,7 @@ export default new Vuex.Store({
       state.transfer = []
       state.topup = []
       state.phoneNumber = []
+      state.pagination = []
     },
     remove_number (state) {
       state.phoneNumber = []
@@ -120,14 +125,16 @@ export default new Vuex.Store({
           })
       })
     },
-    getTransactionHistory (context, payload) {
+    getTransactionHistory (context, noPage = 1) {
       return new Promise((resolve, reject) => {
-        axios.get(`${process.env.VUE_APP_URL_API}/transfer/transaction-history/${localStorage.getItem('id')}`)
+        axios.get(`${process.env.VUE_APP_URL_API}/transfer/transaction-history/${localStorage.getItem('id')}?page=${noPage}&limit=4`)
           .then(res => {
             const result = res.data.result
-            context.commit('set_transaction_history', result)
+            context.commit('set_transaction_history', result.transaction)
+            context.commit('set_pagination', result.pagination)
             resolve(result)
-            console.log('transaction history', result)
+            console.log('transaction history', result.transaction)
+            console.log('pagination', result.pagination)
           })
       })
     },
@@ -338,6 +345,9 @@ export default new Vuex.Store({
     },
     number (state) {
       return state.phoneNumber
+    },
+    getPagination (state) {
+      return state.pagination
     }
   },
   modules: {

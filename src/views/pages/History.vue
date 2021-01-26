@@ -23,6 +23,13 @@
                             </div>
                         </div>
                     </div>
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item" :class="[getPagination.currentPage == getPagination.totalPage ? 'disabled' : '']"><a class="page-link" href="#" @click.prevent="getTransactionHistory(parseInt(getPagination.currentPage) - 1)">Previous</a></li>
+                            <li v-for="noPage in getPagination.totalPage" :key="noPage" :class="[getPagination.currentPage == noPage ? 'active' : '']" class="page-item"><a class="page-link" href="#" @click.prevent="getTransactionHistory(noPage)">{{noPage}}</a></li>
+                            <li class="page-item"><a class="page-link" href="#" @click.prevent="getTransactionHistory(parseInt(getPagination.currentPage) + 1)">Next</a></li>
+                        </ul>
+                    </nav>
                 </main>
             </section>
         </div>
@@ -41,7 +48,7 @@ export default {
     ...mapActions(['getTransactionHistory'])
   },
   computed: {
-    ...mapGetters(['transactionHistory'])
+    ...mapGetters(['transactionHistory', 'getPagination'])
   },
   mounted () {
     this.getTransactionHistory()
