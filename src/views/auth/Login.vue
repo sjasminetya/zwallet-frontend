@@ -24,7 +24,7 @@
 
         <div class="row mb-3">
             <div class="col-12 text-right">
-                <a href="#" class="forget-link">Forgot Password?</a>
+                <router-link to="/auth/send-email-reset-password" class="forget-link">Forgot Password?</router-link>
             </div>
         </div>
 

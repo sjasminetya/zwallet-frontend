@@ -4,6 +4,8 @@ import Home from '../views/Home.vue'
 import Auth from '../views/auth/Auth.vue'
 import Login from '../views/auth/Login.vue'
 import Register from '../views/auth/Register.vue'
+import SendEmailReset from '../views/auth/SendEmailReset.vue'
+import ResetPassword from '../views/auth/ResetPassword.vue'
 import Index from '../views/pages/index.vue'
 import Dashboard from '../views/pages/Dashboard.vue'
 import SearchReceiver from '../views/pages/SearchReceiver.vue'
@@ -14,6 +16,7 @@ import PersonalInformation from '../views/pages/PersonalInformation.vue'
 import ManagePhoneNumber from '../views/pages/ManagePhoneNumber.vue'
 import ChangePassword from '../views/pages/ChangePassword.vue'
 import ChangePin from '../views/pages/ChangePin.vue'
+
 import store from '../store/index'
 
 Vue.use(VueRouter)
@@ -39,6 +42,18 @@ const routes = [
         path: 'register',
         name: 'Register',
         component: Register,
+        meta: { requiresVisitor: true }
+      },
+      {
+        path: 'send-email-reset-password',
+        name: 'SendEmailReset',
+        component: SendEmailReset,
+        meta: { requiresVisitor: true }
+      },
+      {
+        path: 'reset-password',
+        name: 'ResetPassword',
+        component: ResetPassword,
         meta: { requiresVisitor: true }
       }
     ]

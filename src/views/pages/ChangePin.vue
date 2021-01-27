@@ -57,7 +57,7 @@ export default {
       this.updateProfile(payload)
         .then(() => {
           this.$awn.success('success update')
-          this.$router.push('/page/personal-info')
+          this.$router.push('/page/settings-profile')
         })
     }
   }

@@ -87,7 +87,7 @@ export default {
       this.updateProfile(payload)
         .then(() => {
           this.$awn.success('Success Update password')
-          this.$router.push('/page/personal-info')
+          this.$router.push('/page/settings-profile')
         })
     }
   },

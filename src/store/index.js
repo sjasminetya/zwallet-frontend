@@ -108,6 +108,21 @@ export default new Vuex.Store({
           })
       })
     },
+    sendEmailResetPassword (context, payload) {
+      return new Promise((resolve, reject) => {
+        axios.post(`${process.env.VUE_APP_URL_API}/users/send-email`, payload)
+          .then(res => {
+            const result = res.data.result.message
+            context.commit('set_user', result)
+            resolve(result)
+          })
+      })
+    },
+    resetPassword (context, payload) {
+      return new Promise((resolve, reject) => {
+        axios.patch(`${process.env.VUE_APP_URL_API}/users/`)
+      })
+    },
     logout (context) {
       localStorage.removeItem('id')
       localStorage.removeItem('token')
@@ -197,7 +212,7 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         axios.patch(`${process.env.VUE_APP_URL_API}/users/${localStorage.getItem('id')}`, payload)
           .then(res => {
-            console.log('data update', res.data.result)
+            console.log('data update', res.data.result.message)
             resolve(res)
           })
           .catch(err => {
