@@ -41,3 +41,7 @@ VUE_APP_URL_API =
   <img src="images/manage-phone.png" width="400">
   <img src="images/top-up.png" width="400">
 </div>
+
+## Author
+
+  * **Shaula Jasminetya Saga** - [sjasminetya](https://github.com/sjasminetya)
