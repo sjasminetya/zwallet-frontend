@@ -27,7 +27,7 @@
                         <div class="main-bottom">
                             <span class="arrow-down"><i class="fas fa-arrow-down"></i></span>
                                 <h6 class="income">Income</h6>
-                                <h4 class="income-rupiah">Rp {{changeRupiah(profile.income)}}</h4>
+                                <h4 class="income-rupiah">Rp {{profile.income.toString().replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, '$1\.')}}</h4>
 
                                 <span class="arrow-up"><i class="fas fa-arrow-up"></i></span>
                                 <h6 class="expense">Expense</h6>
