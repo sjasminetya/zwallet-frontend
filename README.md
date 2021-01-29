@@ -32,4 +32,4 @@ VUE_APP_URL_API =
 
 ## Screenshots
 <img src="images/login.png" width="400">
-<img src="images/add-phone.png" width="400">
+<img src="images/dashboard.png" width="400">
