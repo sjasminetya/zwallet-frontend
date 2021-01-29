@@ -107,6 +107,12 @@ nav .nav-right span {
     }
 }
 
+@media (max-width: 394px) {
+    nav {
+        height: 160px;
+    }
+}
+
 @media (max-width: 379px) {
     nav .nav-right {
         margin-right: 35px;

@@ -6,7 +6,7 @@
                 <main>
                     <div class="main-top">
                         <h6 class="balance">Balance</h6>
-                        <h1>Rp. {{profile.saldo}}</h1>
+                        <h1>Rp. {{changeRupiah(profile.saldo)}}</h1>
                         <h6 class="number">{{profile.phoneNumber}}</h6>
 
                         <div class="button-right">
@@ -27,11 +27,11 @@
                         <div class="main-bottom">
                             <span class="arrow-down"><i class="fas fa-arrow-down"></i></span>
                                 <h6 class="income">Income</h6>
-                                <h4 class="income-rupiah">Rp2.120.000</h4>
+                                <h4 class="income-rupiah">Rp {{changeRupiah(profile.income)}}</h4>
 
                                 <span class="arrow-up"><i class="fas fa-arrow-up"></i></span>
                                 <h6 class="expense">Expense</h6>
-                                <h4 class="expense-rupiah">Rp {{profile.expense}}</h4>
+                                <h4 class="expense-rupiah">Rp {{changeRupiah(profile.expense)}}</h4>
 
                                 <div class="chart">
 
@@ -78,7 +78,7 @@
                                             <p class="transfer">{{data.notes}}</p>
                                         </div>
 
-                                        <p class="amount">- Rp{{data.amount}}</p>
+                                        <p class="amount">- Rp {{changeRupiah(data.amount)}}</p>
                                     </div>
                                 </div>
                             </div>
@@ -122,6 +122,10 @@ export default {
     resetModal () {
       this.pin = ''
       this.balance = ''
+    },
+    changeRupiah (saldo) {
+      // eslint-disable-next-line no-useless-escape
+      return saldo.toString().replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, '$1\.')
     }
   },
   computed: {

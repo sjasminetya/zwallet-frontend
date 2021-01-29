@@ -11,6 +11,7 @@ import Dashboard from '../views/pages/Dashboard.vue'
 import SearchReceiver from '../views/pages/SearchReceiver.vue'
 import History from '../views/pages/History.vue'
 import InputAmount from '../views/pages/InputAmount.vue'
+import Success from '../views/pages/Success.vue'
 import SettingsProfile from '../views/pages/SettingsProfile.vue'
 import PersonalInformation from '../views/pages/PersonalInformation.vue'
 import ManagePhoneNumber from '../views/pages/ManagePhoneNumber.vue'
@@ -85,6 +86,12 @@ const routes = [
         path: 'input-amount',
         name: 'InputAmount',
         component: InputAmount,
+        meta: { requiresAuth: true }
+      },
+      {
+        path: 'success',
+        name: 'Success',
+        component: Success,
         meta: { requiresAuth: true }
       },
       {

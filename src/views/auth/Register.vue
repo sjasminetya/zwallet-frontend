@@ -10,12 +10,14 @@
                 <span><i class="far fa-user"></i></span>
                 <Input v-model.trim="$v.username.$model" :class="{ 'is-invalid': validationStatus($v.username) }" type="text" placeHolder="Enter your username"/>
                 <div class="invalid-feedback" v-if="!$v.username.required">Field is required.</div>
+                <div class="invalid-feedback" v-if="!$v.username.minLength">Field must have at least {{ $v.username.$params.minLength.min }} characters.</div>
             </div>
 
             <div class="form-input mt-5">
                 <span><i class="far fa-address-book"></i></span>
                 <Input v-model.trim="$v.phoneNumber.$model" :class="{ 'is-invalid': validationStatus($v.phoneNumber) }" type="number" placeHolder="Enter your phone number"/>
                 <div class="invalid-feedback" v-if="!$v.phoneNumber.required">Field is required.</div>
+                <div class="invalid-feedback" v-if="!$v.phoneNumber.maxLength">phone number must have at most {{ $v.phoneNumber.$params.maxLength.max }} number.</div>
             </div>
 
             <div class="form-input mt-5">
@@ -48,7 +50,7 @@
 <script>
 import Input from '../../components/base/Input'
 import Button from '../../components/base/Button'
-import { required, minLength, email } from 'vuelidate/lib/validators'
+import { required, minLength, email, maxLength } from 'vuelidate/lib/validators'
 import { mapMutations, mapActions } from 'vuex'
 export default {
   name: 'Register',
@@ -67,8 +69,8 @@ export default {
   validations: {
     email: { required, email },
     password: { required, minLength: minLength(6) },
-    username: { required },
-    phoneNumber: { required }
+    username: { required, minLength: minLength(4) },
+    phoneNumber: { required, maxLength: maxLength(12) }
   },
   methods: {
     ...mapActions(['register']),

@@ -68,7 +68,7 @@
 
 <script>
 import PincodeInput from 'vue-pincode-input'
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 import SideBar from '../../components/module/SideBar'
 export default {
   name: 'InputAmount',
@@ -87,6 +87,7 @@ export default {
   },
   methods: {
     ...mapActions(['profileFriends', 'userProfile', 'transfer']),
+    ...mapMutations(['set_transfer']),
     friends () {
       const id = this.$route.query.id
       this.profileFriends(id)
@@ -97,11 +98,13 @@ export default {
         senderId: this.senderId,
         amount: this.inputAmount,
         senderPin: this.pin,
-        notes: this.notes
+        notes: this.notes,
+        date_time: new Date()
       }
       this.transfer(payload)
         .then(() => {
-          this.$router.push('/page/transaction-history')
+          this.set_transfer(payload)
+          this.$router.push({ path: '/page/success', query: { id: this.receiverId } })
           this.$awn.success(`Success transfer to ${this.transferToFriend.firstName}`)
         })
     },

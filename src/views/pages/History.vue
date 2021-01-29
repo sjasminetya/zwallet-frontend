@@ -19,15 +19,15 @@
                                     <p class="transfer">{{data.notes}}</p>
                                 </div>
 
-                                <p class="amount">- Rp{{data.amount}}</p>
+                                <p class="amount">- Rp {{changeRupiah(data.amount)}}</p>
                             </div>
                         </div>
                     </div>
                     <nav aria-label="Page navigation example">
                         <ul class="pagination justify-content-center">
-                            <li class="page-item" :class="[getPagination.currentPage == getPagination.totalPage ? 'disabled' : '']"><a class="page-link" href="#" @click.prevent="getTransactionHistory(parseInt(getPagination.currentPage) - 1)">Previous</a></li>
+                            <li class="page-item" :class="[getPagination.prevPage == null ? 'disabled' : '']"><a class="page-link" href="#" @click.prevent="getTransactionHistory(parseInt(getPagination.currentPage) - 1)">Previous</a></li>
                             <li v-for="noPage in getPagination.totalPage" :key="noPage" :class="[getPagination.currentPage == noPage ? 'active' : '']" class="page-item"><a class="page-link" href="#" @click.prevent="getTransactionHistory(noPage)">{{noPage}}</a></li>
-                            <li class="page-item"><a class="page-link" href="#" @click.prevent="getTransactionHistory(parseInt(getPagination.currentPage) + 1)">Next</a></li>
+                            <li class="page-item" :class="[getPagination.nextPage == null ? 'disabled' : '']"><a class="page-link" href="#" @click.prevent="getTransactionHistory(parseInt(getPagination.currentPage) + 1)">Next</a></li>
                         </ul>
                     </nav>
                 </main>
@@ -45,7 +45,11 @@ export default {
     SideBar
   },
   methods: {
-    ...mapActions(['getTransactionHistory'])
+    ...mapActions(['getTransactionHistory']),
+    changeRupiah (saldo) {
+      // eslint-disable-next-line no-useless-escape
+      return saldo.toString().replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, '$1\.')
+    }
   },
   computed: {
     ...mapGetters(['transactionHistory', 'getPagination'])

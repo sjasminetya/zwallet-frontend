@@ -320,6 +320,13 @@ export default new Vuex.Store({
             context.commit('remove_token')
             context.commit('remove')
             router.push('/auth/login')
+          } else if (error.response.data.err.error === 'Login failed, wrong password') {
+            Swal.fire({
+              icon: 'error',
+              title: 'Wrong password',
+              showConfirmButton: false,
+              timer: 2000
+            })
           }
         } else if (error.response.data.error.status === 500) {
           if (error.response.data.error.message === 'File too large') {
@@ -363,6 +370,9 @@ export default new Vuex.Store({
     },
     getPagination (state) {
       return state.pagination
+    },
+    dataTransfer (state) {
+      return state.transfer
     }
   },
   modules: {
