@@ -31,5 +31,7 @@ VUE_APP_URL_API =
 ```
 
 ## Screenshots
+<div class="flex">
 <img src="images/login.png" width="400">
 <img src="images/dashboard.png" width="400">
+</div>
