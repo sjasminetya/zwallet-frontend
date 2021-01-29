@@ -1,29 +1,6 @@
-# zwallet-frontend
+# Zwallet
+Zwallet is a website application that focuses on transferring money between users. In this application users can top up balance and see a transaction history after transfer to friends. Zwallet created with modern and sleek design and not complicated, and users can be comfortable for using it.
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Run your unit tests
-```
-npm run test:unit
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Requirements
+* **[Vue cli](https://cli.vuejs.org/guide/installation.html)**
+* **[Backend Zwallet](https://github.com/sjasminetya/zwallet-backend/blob/main/README.md)**
