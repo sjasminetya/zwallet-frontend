@@ -31,4 +31,5 @@ VUE_APP_URL_API =
 ```
 
 ## Screenshots
-<img src="images/add-phone.png" width="500">
+<img src="images/login.png" width="400">
+<img src="images/add-phone.png" width="400">
