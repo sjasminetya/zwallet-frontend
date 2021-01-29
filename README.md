@@ -34,10 +34,10 @@ VUE_APP_URL_API =
 <div class="flex">
   <img src="images/login.png" width="400">
   <img src="images/dashboard.png" width="400">
-  <img src="images/top-up.png" width="400">
   <img src="images/transaction-history.png" width="400">
   <img src="images/search-receiver.png" width="400">
   <img src="images/input-amount.png" width="400">
   <img src="images/settings-profile.png" width="400">
   <img src="images/manage-phone.png" width="400">
+  <img src="images/top-up.png" width="400">
 </div>
