@@ -15,6 +15,19 @@ Zwallet is a website application that focuses on transferring money between user
 * **[Backend Zwallet](https://github.com/sjasminetya/zwallet-backend)**
 
 ## Getting started
+Clone the repository
 ```
-git clone https://github.com/sjasminetya/zwallet-backend.git
+git clone https://github.com/sjasminetya/zwallet-frontend.git
 ```
+Install all dependencies
+```
+npm install
+```
+
+## Add env
+Create .env.local file in your root project folder.
+```
+VUE_APP_URL_API = 
+```
+
+## Screenshots
