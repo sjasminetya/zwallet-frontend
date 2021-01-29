@@ -31,3 +31,4 @@ VUE_APP_URL_API =
 ```
 
 ## Screenshots
+<img src="images/add-phone.png" width="500">
