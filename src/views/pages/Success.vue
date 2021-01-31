@@ -15,14 +15,14 @@
                             <div class="amount">
                                 <div class="text-amount">
                                     <p>Amount</p>
-                                    <h6>Rp. {{dataTransfer.amount}}</h6>
+                                    <h6>Rp. {{changeRupiah(dataTransfer.amount)}}</h6>
                                 </div>
                             </div>
 
                             <div class="balance-left">
                                 <div class="text-balance">
                                     <p>Balance Left</p>
-                                    <h6>Rp. {{profile.saldo}}</h6>
+                                    <h6>Rp. {{changeRupiah(profile.saldo)}}</h6>
                                 </div>
                             </div>
 
@@ -86,6 +86,9 @@ export default {
     },
     goHome () {
       this.$router.push('/page/dashboard')
+    },
+    changeRupiah (saldo) {
+      return new Intl.NumberFormat(['ban', 'id']).format(saldo)
     }
   },
   computed: {

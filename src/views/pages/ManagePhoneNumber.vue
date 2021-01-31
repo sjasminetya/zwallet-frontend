@@ -343,6 +343,7 @@ main .manage-phone-number-main .content-manage-phone-number .manage-number .icon
 @media (max-width: 331px) {
     main .manage-phone-number-main .content-manage-phone-number .manage-number {
         width: 250px;
+        margin-left: 3%;
     }
 }
 </style>

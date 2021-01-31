@@ -138,6 +138,7 @@ aside .main-menu .menu:hover {
 
 aside .main-menu .menu-logout .menu .logout {
     margin-left: 20px;
+    cursor: pointer;
 }
 
 aside .main-menu .menu a:hover {

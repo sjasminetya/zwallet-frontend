@@ -47,8 +47,7 @@ export default {
   methods: {
     ...mapActions(['getTransactionHistory']),
     changeRupiah (saldo) {
-      // eslint-disable-next-line no-useless-escape
-      return saldo.toString().replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, '$1\.')
+      return new Intl.NumberFormat(['ban', 'id']).format(saldo)
     }
   },
   computed: {

@@ -96,8 +96,7 @@ export default {
       this.balance = ''
     },
     changeRupiah (saldo) {
-      // eslint-disable-next-line no-useless-escape
-      return saldo.toString().replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, '$1\.')
+      return new Intl.NumberFormat(['ban', 'id']).format(saldo)
     }
   },
   computed: {
@@ -395,11 +394,7 @@ main .section-main .main-right .history .amount {
     }
 
     main .section-main .main-bottom {
-        margin-left: 0px;
-    }
-
-    main .section-main .main-right {
-        margin-right: 0px;
+        margin-left: 60px;
     }
 }
 
