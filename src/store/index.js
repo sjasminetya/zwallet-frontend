@@ -299,6 +299,13 @@ export default new Vuex.Store({
               showConfirmButton: false,
               timer: 2000
             })
+          } else if (error.response.data.err.error === 'you must update your PIN') {
+            Swal.fire({
+              icon: 'error',
+              title: 'You must create pin',
+              showConfirmButton: false,
+              timer: 2000
+            })
           }
         } else if (error.response.data.statusCode === 401) {
           if (error.response.data.err.error === 'Please confirm your email to login!') {
