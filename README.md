@@ -43,7 +43,6 @@ VUE_APP_URL_API =
   <img src="images/input-amount.png" width="400">
   <img src="images/settings-profile.png" width="400">
   <img src="images/manage-phone.png" width="400">
-  <img src="images/top-up.png" width="400">
 </div>
 
 ## Author
