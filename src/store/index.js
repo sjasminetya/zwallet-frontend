@@ -328,6 +328,15 @@ export default new Vuex.Store({
               timer: 2000
             })
           }
+        } else if (error.response.data.statusCode === 404) {
+          if (error.response.data.err.error === 'FAILED your balance is not enough! please top up') {
+            Swal.fire({
+              icon: 'error',
+              title: 'Your balance is not enough! please top up',
+              showConfirmButton: false,
+              timer: 2000
+            })
+          }
         } else if (error.response.data.error.status === 500) {
           if (error.response.data.error.message === 'File too large') {
             Swal.fire({

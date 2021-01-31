@@ -36,7 +36,7 @@
 
                         <div class="row">
                             <div class="col-md-11 mt-3 col-12">
-                                <h6 class="saldo">Rp.{{profile.saldo}} Available</h6>
+                                <h6 class="saldo">Rp.{{changeRupiah(profile.saldo)}} Available</h6>
                             </div>
                         </div>
 
@@ -111,6 +111,9 @@ export default {
     resetModal () {
       this.pin = ''
       this.balance = ''
+    },
+    changeRupiah (saldo) {
+      return new Intl.NumberFormat(['ban', 'id']).format(saldo)
     }
   },
   computed: {
