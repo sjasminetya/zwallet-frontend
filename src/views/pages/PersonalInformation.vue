@@ -52,7 +52,8 @@
                                     <form>
                                         <div class="form-group">
                                             <label for="phoneNumber">Phone Number</label>
-                                            <input type="number" v-model="phoneNumber" class="form-control" id="phoneNumber" >
+                                            <input v-model.trim="$v.phoneNumber.$model" :class="{ 'is-invalid': validationStatus($v.phoneNumber) }" type="number" placeHolder="Enter your phone number" class="form-control"/>
+                                            <div class="invalid-feedback" v-if="!$v.phoneNumber.maxLength">phone number must have at most {{ $v.phoneNumber.$params.maxLength.max }} number.</div>
                                         </div>
                                     </form>
                                 </b-modal>
@@ -69,6 +70,7 @@
 <script>
 import SideBar from '../../components/module/SideBar'
 import { mapActions, mapGetters } from 'vuex'
+import { required, maxLength } from 'vuelidate/lib/validators'
 export default {
   name: 'PersonalInformation',
   components: {
@@ -81,9 +83,18 @@ export default {
       phoneNumber: ''
     }
   },
+  validations: {
+    phoneNumber: { required, maxLength: maxLength(12) }
+  },
   methods: {
     ...mapActions(['userProfile', 'updateProfile', 'addPhoneNumber']),
+    validationStatus (validation) {
+      return typeof validation !== 'undefined' ? validation.$error : false
+    },
     update () {
+      this.$v.$touch()
+      if (this.$v.$pendding || this.$v.$error) return
+
       const payload = {
         firstName: this.firstName,
         lastName: this.lastName
@@ -95,6 +106,9 @@ export default {
         })
     },
     addNumber () {
+      this.$v.$touch()
+      if (this.$v.$pendding || this.$v.$error) return
+
       const payload = {
         phoneNumber: this.phoneNumber
       }
@@ -208,6 +222,32 @@ main .content-personal .verified-email {
     background: #FFFFFF;
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
+}
+
+form span {
+    position: absolute;
+    top: 60px;
+    padding-left: -100px !important;
+}
+
+form .is-invalid {
+    border: 2px solid red !important;
+}
+
+form .is-invalid:focus {
+    border: 2px solid red !important;
+    box-shadow: none;
+}
+
+form .invalid-feedback {
+  position: absolute;
+  top: 72%;
+  left: 3%;
+  right: 0;
+  color: red;
+  margin: 0;
+  padding-top: 0;
+  font-size: 12px;
 }
 
 main .content-personal .phone-number {

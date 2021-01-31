@@ -24,44 +24,6 @@
                     </div>
 
                     <div class="section-main">
-                        <div class="main-bottom">
-                            <span class="arrow-down"><i class="fas fa-arrow-down"></i></span>
-                                <h6 class="income">Income</h6>
-                                <h4 class="income-rupiah">Rp {{profile.income.toString().replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, '$1\.')}}</h4>
-
-                                <span class="arrow-up"><i class="fas fa-arrow-up"></i></span>
-                                <h6 class="expense">Expense</h6>
-                                <h4 class="expense-rupiah">Rp {{changeRupiah(profile.expense)}}</h4>
-
-                                <div class="chart">
-
-                                    <h6>+Rp65.000</h6>
-
-                                    <img src="../../assets/img-main/chart.png" class="chart1" alt="chart">
-                                    <img src="../../assets/img-main/chart-1.png" class="chart2" alt="chart">
-                                    <img src="../../assets/img-main/chart-2.png" class="chart3" alt="chart">
-                                    <img src="../../assets/img-main/chart-3.png" class="chart4" alt="chart">
-
-                                    <img src="../../assets/img-main/ellipse.png" class="ellipse" alt="ellipse">
-
-                                    <img src="../../assets/img-main/chart-4.png" class="chart5" alt="chart">
-                                    <img src="../../assets/img-main/chart-5.png" class="chart6" alt="chart">
-                                    <img src="../../assets/img-main/chart-6.png" class="chart7" alt="chart">
-
-                                    <div class="day">
-                                        <h6 class="sat">Sat</h6>
-                                        <h6 class="sun">Sun</h6>
-                                        <h6 class="mon">Mon</h6>
-                                        <h6 class="tue">Tue</h6>
-                                        <h6 class="wed">Wed</h6>
-                                        <h6 class="thu">Thu</h6>
-                                        <h6 class="fri">Fri</h6>
-                                    </div>
-
-                                </div>
-
-                        </div>
-
                         <div class="main-right">
                             <div class="history-main">
                                 <h6 class="transaction">Transaction History</h6>
@@ -82,6 +44,16 @@
                                     </div>
                                 </div>
                             </div>
+                        </div>
+
+                        <div class="main-bottom">
+                            <span class="arrow-down"><i class="fas fa-arrow-down"></i></span>
+                            <h6 class="income">Income</h6>
+                            <h4 class="income-rupiah">Rp {{changeRupiah(profile.income)}}</h4>
+
+                            <span class="arrow-up"><i class="fas fa-arrow-up"></i></span>
+                            <h6 class="expense">Expense</h6>
+                            <h4 class="expense-rupiah">Rp {{changeRupiah(profile.expense)}}</h4>
                         </div>
                     </div>
                 </main>
@@ -244,76 +216,45 @@ main .section-main .main-bottom {
     border-radius: 25px;
     margin-top: 20px;
     margin-right: 20px;
-    margin-left: 10px;
+    margin-left: 20px;
 
-    height: 500px;
-    width: 400px;
+    height: 200px;
+    width: 420px;
     position: relative;
 }
 
-main .section-main .main-bottom span.arrow-down {
+main .section-main .main-bottom span.arrow-down,
+main .section-main .main-bottom span.arrow-up {
     color: #1EC15F;
     font-size: 30px;
     position: absolute;
-    top: 10%;
+    top: 23%;
     left: 10%;
 }
 
 main .section-main .main-bottom span.arrow-up {
     color: #FF5B37;
-    font-size: 30px;
-    position: absolute;
-    top: 10%;
-    left: 60%;
+    left: 65%;
 }
 
-main .section-main .main-bottom .income {
-    position: absolute;
-    left: 10%;
-    top: 25%;
-
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 19px;
-
-    color: #6A6A6A;
-}
-
-main .section-main .main-bottom .income-rupiah {
-    position: absolute;
-    left: 10%;
-    top: 35%;
-
-    font-style: normal;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 18px;
-    line-height: 25px;
-
-    color: #3A3D42;
-}
-
+main .section-main .main-bottom .income,
 main .section-main .main-bottom .expense {
     position: absolute;
-    left: 60%;
-    top: 25%;
+    left: 10%;
+    top: 45%;
 
-    font-style: normal;
-    font-weight: normal;
     font-size: 14px;
     line-height: 19px;
 
     color: #6A6A6A;
 }
 
+main .section-main .main-bottom .income-rupiah,
 main .section-main .main-bottom .expense-rupiah {
     position: absolute;
-    left: 60%;
-    top: 35%;
+    left: 10%;
+    top: 55%;
 
-    font-style: normal;
-    font-style: normal;
     font-weight: bold;
     font-size: 18px;
     line-height: 25px;
@@ -321,119 +262,10 @@ main .section-main .main-bottom .expense-rupiah {
     color: #3A3D42;
 }
 
-main .section-main .main-bottom .chart h6 {
-    margin-top: 210px;
-
-    font-style: normal;
-    font-weight: bold;
-    font-size: 14px;
-    line-height: 19px;
-    text-align: center;
-
-    color: #1EC15F;
-}
-
-main .section-main .main-bottom .chart .chart1 {
+main .section-main .main-bottom .expense,
+main .section-main .main-bottom .expense-rupiah {
     position: absolute;
-    left: 18%;
-    top: 47%;
-}
-
-main .section-main .main-bottom .chart .chart2 {
-    position: absolute;
-    left: 28%;
-    top: 72%;
-}
-
-main .section-main .main-bottom .chart .chart3 {
-    position: absolute;
-    left: 38%;
-    top: 62%;
-}
-
-main .section-main .main-bottom .chart .chart4 {
-    position: absolute;
-    left: 48%;
-    top: 55%;
-}
-
-main .section-main .main-bottom .chart .ellipse {
-    position: absolute;
-    left: 46%;
-    top: 50%;
-}
-
-main .section-main .main-bottom .chart .chart5 {
-    position: absolute;
-    left: 58%;
-    top: 64%;
-}
-
-main .section-main .main-bottom .chart .chart6 {
-    position: absolute;
-    left: 68%;
-    top: 52%;
-}
-
-main .section-main .main-bottom .chart .chart7 {
-    position: absolute;
-    left: 78%;
-    top: 61%;
-}
-
-main .section-main .main-bottom .chart .day h6{
-    display: flex;
-    margin-top: 30px;
-    position: relative;
-
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 19px;
-
-    color: #8F8F8F;
-}
-
-main .section-main .main-bottom .chart .day .sat {
-    position: absolute;
-    left: 18%;
-    top: 87%;
-}
-
-main .section-main .main-bottom .chart .day .sun {
-    position: absolute;
-    left: 28%;
-    top: 87%;
-}
-
-main .section-main .main-bottom .chart .day .mon {
-    position: absolute;
-    left: 38%;
-    top: 87%;
-}
-
-main .section-main .main-bottom .chart .day .tue {
-    position: absolute;
-    left: 48%;
-    top: 87%;
-}
-
-main .section-main .main-bottom .chart .day .wed {
-    position: absolute;
-    left: 58%;
-    top: 87%;
-}
-
-main .section-main .main-bottom .chart .day .thu {
-    position: absolute;
-    left: 68%;
-    top: 87%;
-}
-
-main .section-main .main-bottom .chart .day .fri {
-    position: absolute;
-    left: 78%;
-    top: 87%;
+    left: 65%;
 }
 
 main .section-main .main-right {
