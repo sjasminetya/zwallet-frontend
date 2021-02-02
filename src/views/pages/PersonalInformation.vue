@@ -92,9 +92,6 @@ export default {
       return typeof validation !== 'undefined' ? validation.$error : false
     },
     update () {
-      this.$v.$touch()
-      if (this.$v.$pendding || this.$v.$error) return
-
       const payload = {
         firstName: this.firstName,
         lastName: this.lastName
