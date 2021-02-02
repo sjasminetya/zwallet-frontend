@@ -111,7 +111,6 @@ export default {
       }
       this.addPhoneNumber(payload)
         .then((res) => {
-          console.log(res)
           this.$awn.success('success add phone number')
           this.$router.push('/page/manage-phone-number')
         })
