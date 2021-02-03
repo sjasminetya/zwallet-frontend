@@ -52,7 +52,7 @@ const routes = [
         meta: { requiresVisitor: true }
       },
       {
-        path: 'reset-password',
+        path: 'reset-password/:id',
         name: 'ResetPassword',
         component: ResetPassword,
         meta: { requiresVisitor: true }

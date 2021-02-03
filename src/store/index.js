@@ -116,11 +116,22 @@ export default new Vuex.Store({
             context.commit('set_user', result)
             resolve(result)
           })
+          .catch(err => {
+            reject(err)
+          })
       })
     },
     resetPassword (context, payload) {
       return new Promise((resolve, reject) => {
-        axios.patch(`${process.env.VUE_APP_URL_API}/users/`)
+        axios.patch(`${process.env.VUE_APP_URL_API}/users/reset/${payload.id}`, payload)
+          .then(res => {
+            const result = res.data.result.message
+            console.log(result)
+            resolve(result)
+          })
+          .catch(err => {
+            reject(err)
+          })
       })
     },
     logout (context) {
@@ -303,6 +314,13 @@ export default new Vuex.Store({
             Swal.fire({
               icon: 'error',
               title: 'You must create pin',
+              showConfirmButton: false,
+              timer: 2000
+            })
+          } else if (error.response.data.err.error === 'email not found') {
+            Swal.fire({
+              icon: 'error',
+              title: 'email not found',
               showConfirmButton: false,
               timer: 2000
             })

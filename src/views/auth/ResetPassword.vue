@@ -5,7 +5,7 @@
       <p>To reset your password, you must type your new password and your password will be updated.</p>
     </div>
 
-    <form>
+    <form @submit.prevent="updatePassword">
       <div class="form-input">
         <span><i class="fas fa-lock"></i></span>
         <input v-model.trim="$v.password.$model" :type="[showPassword ? 'password' : 'text']" :class="{ 'is-invalid': validationStatus($v.password) }" class="form-control" placeholder="New password"/>
@@ -33,7 +33,8 @@ export default {
   data () {
     return {
       password: '',
-      showPassword: false
+      showPassword: false,
+      id: this.$route.params.id
     }
   },
   validations: {
@@ -43,21 +44,22 @@ export default {
     }
   },
   methods: {
-    ...mapActions(['userProfile', 'updateProfile']),
+    ...mapActions(['resetPassword']),
     validationStatus (validation) {
       return typeof validation !== 'undefined' ? validation.$error : false
     },
     updatePassword () {
       this.$v.$touch()
       if (this.$v.$pendding || this.$v.$error) return
-
+      console.log(this.id)
       const payload = {
+        id: this.id,
         password: this.password
       }
-      this.updateProfile(payload)
+      this.resetPassword(payload)
         .then(() => {
-          this.$awn.success('Success Update password')
-          this.$router.push('/page/personal-info')
+          this.$awn.success('Success reset password, please login')
+          this.$router.push('/auth/login')
         })
     }
   }

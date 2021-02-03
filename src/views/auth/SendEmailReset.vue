@@ -5,7 +5,7 @@
       <p>To reset your password, you must type your e-mail and we will send a link to your email and you will be directed to the reset password screens.</p>
     </div>
 
-    <form>
+    <form @submit.prevent="sendEmail">
       <div class="form-input">
           <span><i class="fas fa-envelope"></i></span>
           <Input v-model.trim="$v.email.$model" :class="{ 'is-invalid': validationStatus($v.email) }" type="email" placeHolder="Enter your e-mail"/>
@@ -40,22 +40,20 @@ export default {
     email: { required, email }
   },
   methods: {
-    ...mapActions(['login']),
+    ...mapActions(['sendEmailResetPassword']),
     validationStatus (validation) {
       return typeof validation !== 'undefined' ? validation.$error : false
     },
-    goLogin () {
+    sendEmail () {
       this.$v.$touch()
       if (this.$v.$pendding || this.$v.$error) return
 
       const payload = {
-        email: this.email,
-        password: this.password
+        email: this.email
       }
-      this.login(payload)
+      this.sendEmailResetPassword(payload)
         .then(() => {
-          this.$awn.success('Success login')
-          this.$router.push('/page/dashboard')
+          this.$awn.success(`An email has been sent to ${this.email}`)
         })
     }
   }
