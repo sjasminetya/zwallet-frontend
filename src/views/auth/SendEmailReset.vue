@@ -93,8 +93,7 @@ export default {
     box-shadow: none;
 }
 
-.form-box .form-input .invalid-feedback,
-.form-box .form-input .invalid-feedback-password {
+.form-box .form-input .invalid-feedback {
   position: absolute;
   top: 100%;
   left: 0;

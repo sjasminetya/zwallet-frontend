@@ -141,9 +141,97 @@ export default {
     color: #000;
 }
 
-@media (max-width: 568px) {
+@media (max-width: 1300px) {
+  .form-box .form-input span.span-eye {
+      left: 350px;
+  }
+}
+
+@media (max-width: 1226px) {
+  .form-box .form-input span.span-eye {
+      left: 320px;
+  }
+}
+
+@media (max-width: 1144px) {
+  .form-box .form-input span.span-eye {
+      left: 290px;
+  }
+}
+
+@media (max-width: 1058px) {
+  .form-box .form-input span.span-eye {
+      left: 240px;
+  }
+}
+
+@media (max-width: 760px) {
+  .form-box .form-input span.span-eye {
+      left: 450px;
+  }
+}
+
+@media (max-width: 692px) {
+  .form-box .form-input span.span-eye {
+      left: 420px;
+  }
+}
+
+@media (max-width: 642px) {
+  .form-box .form-input span.span-eye {
+      left: 390px;
+  }
+}
+
+@media (max-width: 606px) {
+  .form-box .form-input span.span-eye {
+      left: 360px;
+  }
+}
+
+@media (max-width: 570px) {
   .form-box .heading {
     margin-top: -10%;
+  }
+
+  .form-box .form-input span.span-eye {
+      left: 460px;
+  }
+}
+
+@media (max-width: 542px) {
+  .form-box .form-input span.span-eye {
+      left: 420px;
+  }
+}
+
+@media (max-width: 502px) {
+  .form-box .form-input span.span-eye {
+      left: 390px;
+  }
+}
+
+@media (max-width: 474px) {
+  .form-box .form-input span.span-eye {
+      left: 350px;
+  }
+}
+
+@media (max-width: 436px) {
+  .form-box .form-input span.span-eye {
+      left: 310px;
+  }
+}
+
+@media (max-width: 394px) {
+  .form-box .form-input span.span-eye {
+      left: 270px;
+  }
+}
+
+@media (max-width: 354px) {
+  .form-box .form-input span.span-eye {
+      left: 230px;
   }
 }
 </style>
