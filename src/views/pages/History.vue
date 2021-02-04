@@ -11,14 +11,15 @@
                         <div class="content-history" v-for="(data, index) in transactionHistory" :key="index">
 
                             <div class="history">
-                                <div class="user-img">
-                                    <img :src="data.image" alt="user profile">
+                                <div class="user-profile">
+                                    <div class="user-img">
+                                        <img :src="data.image" alt="user profile">
+                                    </div>
+                                    <div class="text">
+                                        <h6 class="name">{{data.firstName}} {{data.lastName}}</h6>
+                                        <p class="transfer">{{data.notes}}</p>
+                                    </div>
                                 </div>
-                                <div class="text">
-                                    <h6 class="name">{{data.firstName}} {{data.lastName}}</h6>
-                                    <p class="transfer">{{data.notes}}</p>
-                                </div>
-
                                 <p class="amount">- Rp {{changeRupiah(data.amount)}}</p>
                             </div>
                         </div>
@@ -136,6 +137,7 @@ main .content-history {
 main .history {
     display: flex;
     flex-direction: row;
+    justify-content: space-between;
     padding-top: 20px;
     padding-left: 20px;
     margin-left: 10%;
@@ -146,6 +148,10 @@ main .history {
     box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
     border: none;
+}
+
+main .history .user-profile {
+    display: flex;
 }
 
 main .history .user-img img{
@@ -192,7 +198,7 @@ main .history .amount {
     font-size: 16px;
     line-height: 22px;
     text-align: right;
-
+    padding-right: 30px;
     color: #FF5B37;
 }
 

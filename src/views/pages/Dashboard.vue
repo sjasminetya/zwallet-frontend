@@ -31,15 +31,16 @@
 
                                 <div class="content-history" v-for="(data, index) in transactionHistory" :key="index">
                                     <div class="history">
-                                        <div class="user-img">
-                                            <img :src="data.image" alt="user profile">
-                                        </div>
+                                        <div class="user-profile">
+                                            <div class="user-img">
+                                                <img :src="data.image" alt="user profile">
+                                            </div>
 
-                                        <div class="text">
-                                            <h6 class="name">{{data.firstName}} {{data.lastName}}</h6>
-                                            <p class="transfer">{{data.notes}}</p>
+                                            <div class="text">
+                                                <h6 class="name">{{data.firstName}} {{data.lastName}}</h6>
+                                                <p class="transfer">{{data.notes}}</p>
+                                            </div>
                                         </div>
-
                                         <p class="amount">- Rp {{changeRupiah(data.amount)}}</p>
                                     </div>
                                 </div>
@@ -233,7 +234,7 @@ main .section-main .main-bottom span.arrow-up {
 
 main .section-main .main-bottom span.arrow-up {
     color: #FF5B37;
-    left: 65%;
+    left: 60%;
 }
 
 main .section-main .main-bottom .income,
@@ -264,7 +265,7 @@ main .section-main .main-bottom .expense-rupiah {
 main .section-main .main-bottom .expense,
 main .section-main .main-bottom .expense-rupiah {
     position: absolute;
-    left: 65%;
+    left: 60%;
 }
 
 main .section-main .main-right {
@@ -320,7 +321,11 @@ main .section-main .main-right .history {
     display: flex;
     flex-direction: row;
     padding: 20px;
-    padding-left: 40px;
+    justify-content: space-between;
+}
+
+main .user-profile {
+    display: flex;
 }
 
 main .section-main .main-right .history .user-img img{
@@ -360,7 +365,7 @@ main .section-main .main-right .history .amount {
     font-size: 16px;
     line-height: 22px;
     text-align: right;
-
+    padding-right: 10px;
     color: #FF5B37;
 }
 
