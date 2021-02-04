@@ -17,8 +17,6 @@
                             <h5>{{profile.firstName}} {{profile.lastName}}</h5>
                             <h6 class="number-phone">{{profile.phoneNumber}}</h6>
                         </div>
-
-                        <span><i class="far fa-bell fa-lg"></i></span>
                     </div>
 
                 </div>
