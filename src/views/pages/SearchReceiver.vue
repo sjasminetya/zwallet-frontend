@@ -7,9 +7,6 @@
                     <div class="search-main">
                         <div class="text-main">
                             <h6 class="search-receiver">Search Receiver</h6>
-                            <div class="button-sort">
-                                <button @click="sortTable"><i class="fas fa-sort-alpha-up"></i></button>
-                            </div>
                         </div>
 
                         <div class="search-box">
@@ -76,18 +73,6 @@ export default {
       this.searching = await this.searchName(this.search)
       console.log(this.searching)
     },
-    sortTable () {
-      if (this.sort) {
-        this.friends.sort((a, b) => a.firstName > b.firstName ? 1 : -1)
-        this.sort = false
-      } else {
-        this.sort = true
-        this.friends.sort((a, b) => a.firstName < b.firstName ? 1 : -1)
-      }
-    },
-    sortHighest () {
-      this.friends.sort((a, b) => a.firstName < b.firstName ? 1 : -1)
-    },
     goPage (id) {
       this.$router.push({ path: '/page/input-amount', query: { id: id } })
     }
@@ -152,22 +137,6 @@ main .text-main .search-receiver {
     line-height: 25px;
 
     color: #3A3D42;
-}
-
-main .text-main .button-sort {
-    width: 80px;
-    height: 40px;
-    padding-left: 60%;
-    padding-top: 40px;
-    font-size: 30px;
-    display: flex;
-}
-
-main .text-main .button-sort button {
-    margin-left: 80px;
-    border: none;
-    background: #fff;
-    outline: none;
 }
 
 main .search-box {
@@ -267,10 +236,6 @@ main .content-search button.page-link {
     main .content-search .search {
         width: 550px;
     }
-
-    main .text-main .button-sort button {
-        margin-left: 10px;
-    }
 }
 
 @media (max-width: 1100px) {
@@ -292,10 +257,6 @@ main .content-search button.page-link {
     main .content-search .search {
         width: 850px;
     }
-
-    main .text-main .button-sort button {
-        margin-left: 120px;
-    }
 }
 
 @media (max-width: 992px) {
@@ -305,12 +266,6 @@ main .content-search button.page-link {
 
     main .content-search .search {
         width: 650px;
-    }
-}
-
-@media (max-width: 986px) {
-    main .text-main .button-sort button {
-        margin-left: 50px;
     }
 }
 
@@ -334,12 +289,6 @@ main .content-search button.page-link {
     }
 }
 
-@media (max-width: 758px) {
-    main .text-main .button-sort button {
-        margin-left: -50px;
-    }
-}
-
 @media (max-width: 576px) {
     main .search-box input {
         width: 500px;
@@ -351,10 +300,6 @@ main .content-search button.page-link {
 
     main .content-search .search .text-content {
         margin-top: 6%;
-    }
-
-    main .text-main .button-sort button {
-        margin-left: -20px;
     }
 }
 
@@ -376,10 +321,6 @@ main .content-search button.page-link {
 }
 
 @media (max-width: 563px) {
-    main .text-main .button-sort {
-        margin-left: -20px;
-    }
-
     main .search-box span {
         margin-left: 40px;
         top: 48%;
@@ -413,10 +354,6 @@ main .content-search button.page-link {
 
     main .content-search .search {
         width: 380px;
-    }
-
-    main .text-main .button-sort {
-        margin-left: -50px;
     }
 }
 
@@ -488,10 +425,6 @@ main .content-search button.page-link {
     main .content-search .search .text-content {
         margin-top: 6%;
     }
-
-    main .text-main .button-sort {
-        margin-left: -70px;
-    }
 }
 
 @media (max-width: 358px) {
@@ -512,10 +445,6 @@ main .content-search button.page-link {
     main .content-search .search {
         width: 250px;
     }
-
-    main .text-main .button-sort {
-        margin-left: -80px;
-    }
 }
 
 @media (max-width: 327px) {
@@ -525,10 +454,6 @@ main .content-search button.page-link {
 
     main .content-search .search {
         width: 230px;
-    }
-
-    main .text-main .button-sort {
-        margin-left: -90px;
     }
 }
 
