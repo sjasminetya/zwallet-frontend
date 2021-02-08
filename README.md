@@ -4,6 +4,9 @@
 
 # Zwallet
 Zwallet is a website application that focuses on transferring money between users. In this application users can top up balance and see a transaction history after transfer to friends. Zwallet created with modern and sleek design and not complicated, and users can be comfortable for using it.
+<br />
+[`Views demo zwallet`](https://zwallet-sjasminetya.netlify.app/)
+
 
 ## Features
 * **Transfer money**
@@ -15,8 +18,8 @@ Zwallet is a website application that focuses on transferring money between user
 * **and others**
 
 ## Requirements
-* **[Vue cli](https://cli.vuejs.org/guide/installation.html)**
-* **[Backend Zwallet](https://github.com/sjasminetya/zwallet-backend)**
+* **[`Vue cli`](https://cli.vuejs.org/guide/installation.html)**
+* **[`Backend Zwallet`](https://github.com/sjasminetya/zwallet-backend)**
 
 ## Getting started
 Clone the repository
@@ -35,7 +38,7 @@ VUE_APP_URL_API =
 ```
 
 ## Screenshots
-<div class="flex">
+<div class="flex" align="center">
   <img src="images/login.png" width="400">
   <img src="images/dashboard.png" width="400">
   <img src="images/transaction-history.png" width="400">
