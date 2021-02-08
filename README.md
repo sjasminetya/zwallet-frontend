@@ -5,7 +5,7 @@
 # Zwallet
 Zwallet is a website application that focuses on transferring money between users. In this application users can top up balance and see a transaction history after transfer to friends. Zwallet created with modern and sleek design and not complicated, and users can be comfortable for using it.
 <br />
-[`Views demo zwallet`](https://zwallet-sjasminetya.netlify.app/)
+[`View demo zwallet`](https://zwallet-sjasminetya.netlify.app/)
 
 
 ## Features
