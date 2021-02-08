@@ -37,7 +37,7 @@
                                             </div>
 
                                             <div class="text">
-                                                <h6 class="name">{{data.firstName}} {{data.lastName}}</h6>
+                                                <h6 v-set-font:capitalize class="name">{{data.firstName}} {{data.lastName}}</h6>
                                                 <p class="transfer">{{data.notes}}</p>
                                             </div>
                                         </div>

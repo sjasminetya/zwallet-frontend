@@ -15,7 +15,7 @@
                         </label>
 
                         <div class="name-phone-profile">
-                            <h6>{{profile.firstName}} {{profile.lastName}}</h6>
+                            <h6 v-set-font:small v-set-font:capitalize>{{profile.firstName}} {{profile.lastName}}</h6>
                             <p>{{profile.phoneNumber}}</p>
                         </div>
                     </div>

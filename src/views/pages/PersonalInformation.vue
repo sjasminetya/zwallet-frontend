@@ -29,12 +29,12 @@
 
                             <div class="first-name">
                                 <p>First Name</p>
-                                <h6>{{profile.firstName}}</h6>
+                                <h6 v-set-font:medium v-set-font:capitalize>{{profile.firstName}}</h6>
                             </div>
 
                             <div class="last-name">
                                 <p>Last Name</p>
-                                <h6>{{profile.lastName}}</h6>
+                                <h6 v-set-font:medium v-set-font:capitalize>{{profile.lastName}}</h6>
                             </div>
 
                             <div class="verified-email">

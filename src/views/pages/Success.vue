@@ -48,7 +48,7 @@
                                 </div>
 
                                 <div class="text-samuel">
-                                    <h6>{{transferToFriend.firstName}} {{transferToFriend.lastName}}</h6>
+                                    <h6 v-set-font:uppercase>{{transferToFriend.firstName}} {{transferToFriend.lastName}}</h6>
                                     <p>{{transferToFriend.phoneNumber}}</p>
                                 </div>
                             </div>

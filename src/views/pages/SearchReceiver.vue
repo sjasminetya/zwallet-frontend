@@ -23,7 +23,7 @@
                                         </div>
 
                                         <div class="text-content">
-                                            <h6>{{data.firstName}} {{data.lastName}}</h6>
+                                            <h6 v-set-font:small v-set-font:uppercase>{{data.firstName}} {{data.lastName}}</h6>
                                             <p>{{data.phoneNumber}}</p>
                                         </div>
                                     </div>
@@ -38,7 +38,7 @@
                                         </div>
 
                                         <div class="text-content">
-                                            <h6 v-set-font:small>{{data.firstName}} {{data.lastName}}</h6>
+                                            <h6 v-set-font:small v-set-font:uppercase>{{data.firstName}} {{data.lastName}}</h6>
                                             <p>{{data.phoneNumber}}</p>
                                         </div>
                                     </div>

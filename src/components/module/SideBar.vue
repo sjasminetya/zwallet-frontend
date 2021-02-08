@@ -23,7 +23,7 @@
                 </b-modal>
             </div>
 
-            <router-link to="/page/settings-profile" class="menu">
+            <router-link v-set-font:small to="/page/settings-profile" class="menu">
                 <span><i class="far fa-user"></i></span>
                 <div class="menu-sidebar">Profile</div>
             </router-link>
