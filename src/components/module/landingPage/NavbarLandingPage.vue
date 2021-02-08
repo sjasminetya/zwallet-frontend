@@ -9,8 +9,8 @@
 
                 <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                     <div class="navbar-nav ml-auto">
-                        <div class="btn btn-login" @click.prevent="goLogin">Login</div>
-                        <div class="btn btn-sign-up" @click.prevent="goRegister">Sign Up</div>
+                        <div v-set-font:small class="btn btn-login" @click.prevent="goLogin">Login</div>
+                        <div v-set-font:small class="btn btn-sign-up" @click.prevent="goRegister">Sign Up</div>
                     </div>
                 </div>
 
@@ -55,7 +55,6 @@ nav .btn-login {
 
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
     text-align: center;
 
@@ -80,7 +79,6 @@ nav .btn-sign-up {
 
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
     text-align: center;
 

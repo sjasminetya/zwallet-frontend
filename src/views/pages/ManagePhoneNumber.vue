@@ -6,7 +6,7 @@
                 <main>
                     <div class="manage-phone-number-main">
 
-                        <h6 class="manage-phone-number">Manage Phone Number</h6>
+                        <h6 v-set-font:small class="manage-phone-number">Manage Phone Number</h6>
 
                         <div class="row">
                             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
@@ -104,7 +104,6 @@ main::-webkit-scrollbar {
 main .manage-phone-number-main .manage-phone-number {
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
     margin-top: 3%;
     margin-left: 3%;

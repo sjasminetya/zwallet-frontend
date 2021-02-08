@@ -5,7 +5,7 @@
                 <SideBar/>
                 <main>
                     <div class="history-main">
-                        <h6 class="transaction">Transaction History</h6>
+                        <h6 v-set-font:small class="transaction">Transaction History</h6>
                         <p class="text-transaction">your transaction history after transfer to your friends</p>
 
                         <div class="content-history" v-for="(data, index) in transactionHistory" :key="index">
@@ -94,7 +94,6 @@ main .transaction {
 
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
 
     color: #3A3D42;

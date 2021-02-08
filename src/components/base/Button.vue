@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button>{{name}}</button>
+        <button v-set-font:small>{{name}}</button>
     </div>
 </template>
 
@@ -23,7 +23,6 @@ button {
 
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
 
     background: #DADADA;

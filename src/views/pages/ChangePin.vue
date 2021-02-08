@@ -6,7 +6,7 @@
                 <main>
                     <div class="change-pin-main">
 
-                        <h6 class="change-pin">Change PIN</h6>
+                        <h6 v-set-font:small class="change-pin">Change PIN</h6>
 
                         <div class="row">
                             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
@@ -19,7 +19,7 @@
                             <form @submit.prevent="update" class="digit-group">
                                 <PincodeInput v-model="pin" placeholder="0" :length="6" required/>
                                 <div class="text-center mb-5">
-                                    <Button type="submit" name="Confirm"/>
+                                    <Button v-set-font:small type="submit" name="Confirm"/>
                                 </div>
                             </form>
 
@@ -93,7 +93,6 @@ main .change-pin-main {
 main .change-pin-main .change-pin {
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
     margin-top: 3%;
     margin-left: 3%;
@@ -156,7 +155,6 @@ main .change-pin-main .content-change-pin button[type="submit"] {
 
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
 
     background: #DADADA;

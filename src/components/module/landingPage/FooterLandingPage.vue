@@ -10,7 +10,7 @@
 
                 <div class="row">
                     <div class="col-md-4">
-                        <p class="about">Simplify financial needs and saving much time in banking needs with one single app.</p>
+                        <p v-set-font:small class="about">Simplify financial needs and saving much time in banking needs with one single app.</p>
                     </div>
                 </div>
 
@@ -58,7 +58,6 @@ footer h1 {
 footer p.about {
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
     line-height: 31px;
     margin-top: 3%;
 

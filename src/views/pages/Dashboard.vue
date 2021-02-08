@@ -5,15 +5,15 @@
                 <SideBar/>
                 <main>
                     <div class="main-top">
-                        <h6 class="balance">Balance</h6>
-                        <h1>Rp. {{changeRupiah(profile.saldo)}}</h1>
-                        <h6 class="number">{{profile.phoneNumber}}</h6>
+                        <h6 v-set-font:small class="balance">Balance</h6>
+                        <h1 v-set-font:large>Rp. {{changeRupiah(profile.saldo)}}</h1>
+                        <h6 v-set-font:small class="number">{{profile.phoneNumber}}</h6>
 
                         <div class="button-right">
-                            <button type="submit" class="btn">
+                            <button v-set-font:small type="submit" class="btn">
                                 <router-link to="/page/search-receiver"><i class="fas fa-arrow-up"></i>Transfer</router-link>
                             </button>
-                            <b-button v-b-modal.modal-1 class="btn topup"><i class="fas fa-plus"></i>Top Up</b-button>
+                            <b-button v-set-font:small v-b-modal.modal-1 class="btn topup"><i class="fas fa-plus"></i>Top Up</b-button>
                             <b-modal id="modal-1" title="Top Up saldo" @ok="goTopup" @show="resetModal" @hidden="resetModal">
                                 <h6>Input amount</h6>
                                 <b-form-input v-model="balance" placeholder="Input amount" type="number" required></b-form-input>
@@ -26,7 +26,7 @@
                     <div class="section-main">
                         <div class="main-right">
                             <div class="history-main">
-                                <h6 class="transaction">Transaction History</h6>
+                                <h6 v-set-font:small class="transaction">Transaction History</h6>
                                 <router-link to="/page/transaction-history">See all</router-link>
 
                                 <div class="content-history" v-for="(data, index) in transactionHistory" :key="index">
@@ -50,11 +50,11 @@
                         <div class="main-bottom">
                             <span class="arrow-down"><i class="fas fa-arrow-down"></i></span>
                             <h6 class="income">Income</h6>
-                            <h4 class="income-rupiah">Rp {{changeRupiah(profile.income)}}</h4>
+                            <h4 v-set-font:small class="income-rupiah">Rp {{changeRupiah(profile.income)}}</h4>
 
                             <span class="arrow-up"><i class="fas fa-arrow-up"></i></span>
                             <h6 class="expense">Expense</h6>
-                            <h4 class="expense-rupiah">Rp {{changeRupiah(profile.expense)}}</h4>
+                            <h4 v-set-font:small class="expense-rupiah">Rp {{changeRupiah(profile.expense)}}</h4>
                         </div>
                     </div>
                 </main>
@@ -138,7 +138,6 @@ main .main-top h6.balance {
 
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
     line-height: 31px;
 
     color: #E0E0E0;
@@ -150,7 +149,6 @@ main .main-top h1 {
 
     font-style: normal;
     font-weight: bold;
-    font-size: 40px;
     line-height: 55px;
     color: #FFFFFF;
 }
@@ -161,7 +159,6 @@ main .main-top h6.number {
 
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
     line-height: 31px;
 
     color: #E0E0E0;
@@ -181,7 +178,6 @@ main .main-top .button-right button {
 
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
 
     background: rgba(255, 255, 255, 0.2);
@@ -256,7 +252,6 @@ main .section-main .main-bottom .expense-rupiah {
     top: 55%;
 
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
 
     color: #3A3D42;
@@ -292,7 +287,6 @@ main .section-main .main-right .transaction {
 
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
 
     color: #3A3D42;

@@ -8,7 +8,7 @@
 
                         <img class="success" src="../../assets/img-main/success.png" alt="Transfer Succes">
 
-                        <h6 class="confirmation-transfer">Transfer Success</h6>
+                        <h6 v-set-font:small class="confirmation-transfer">Transfer Success</h6>
 
                         <div class="content-confirmation">
 
@@ -40,7 +40,7 @@
                                 </div>
                             </div>
 
-                            <p class="transfer-to">Transfer To</p>
+                            <p v-set-font:small class="transfer-to">Transfer To</p>
 
                             <div class="name-samuel">
                                 <div class="user-img">
@@ -55,7 +55,7 @@
 
                             <div class="button-success">
                                 <div class="text-center mr-3">
-                                    <button type="submit" @click.prevent="goHome" class="btn btn-back">Back to Home</button>
+                                    <button v-set-font:small type="submit" @click.prevent="goHome" class="btn btn-back">Back to Home</button>
                                 </div>
                             </div>
                         </div>
@@ -132,7 +132,6 @@ main .confirmation-transfer {
 
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
 
     color: #3A3D42;
@@ -206,7 +205,6 @@ main .content-confirmation .transfer-to {
 
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
 
     color: #3A3D42;
@@ -234,7 +232,6 @@ main .content-confirmation .button-success .btn-download {
 main .content-confirmation .button-success .btn-download .download {
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
     color: #6379F4;
     text-align: center;
@@ -258,7 +255,6 @@ main .content-confirmation .button-success .btn-back {
 
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
 
     background: #6379F4;

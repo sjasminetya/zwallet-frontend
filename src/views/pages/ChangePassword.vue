@@ -6,7 +6,7 @@
                 <main>
                     <div class="change-password-main">
 
-                        <h6 class="change-password">Change Password</h6>
+                        <h6 v-set-font:small class="change-password">Change Password</h6>
 
                         <div class="row">
                             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
@@ -33,7 +33,7 @@
                                 </div>
 
                                 <div class="text-center mb-3">
-                                    <Button type="submit" name="Change Password"/>
+                                    <Button v-set-font:small type="submit" name="Change Password"/>
                                 </div>
                             </form>
                         </div>
@@ -120,7 +120,6 @@ main {
 main .change-password-main .change-password {
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
     margin-top: 3%;
     margin-left: 3%;
@@ -218,7 +217,6 @@ main .change-password-main .content-change-password button[type="submit"] {
 
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
 
     background: #DADADA;

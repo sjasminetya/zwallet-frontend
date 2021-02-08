@@ -5,7 +5,7 @@
                 <SideBar/>
                 <main>
                     <div class="personal-main">
-                        <h6 class="personal-info">Personal Information</h6>
+                        <h6 v-set-font:small class="personal-info">Personal Information</h6>
                         <div class="row">
                             <div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                                 <p class="text-personal">We got your personal information from the sign up proccess. If you want to make changes on your information, contact our support.</p>
@@ -153,7 +153,6 @@ main {
 main .personal-info {
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
     margin-top: 3%;
     margin-left: 3%;

@@ -16,6 +16,18 @@ Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(VueAWN)
 
+Vue.directive('set-font', {
+  bind: function (el, binding) {
+    if (binding.arg === 'large') {
+      el.style.fontSize = '40px'
+    } else if (binding.arg === 'small') {
+      el.style.fontSize = '18px'
+    } else {
+      el.style.fontSize = '16px'
+    }
+  }
+})
+
 new Vue({
   router,
   store,

@@ -11,13 +11,13 @@
 
                     <div class="row">
                         <div class="col-md-6 offset-md-3">
-                            <p>We bring you a mobile app for banking problems that oftenly wasting much of your times.</p>
+                            <p v-set-font:small>We bring you a mobile app for banking problems that oftenly wasting much of your times.</p>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-12">
-                            <button type="submit" class="btn btn-try">Try It Free</button>
+                            <button v-set-font:small type="submit" class="btn btn-try">Try It Free</button>
                         </div>
                     </div>
                 </div>
@@ -33,7 +33,7 @@
 
                     <div class="row">
                         <div class="col-md-6 offset-md-3">
-                            <p class="text-main">We have some great features from the application and it’s totally free to use by all users around the world.</p>
+                            <p v-set-font:small class="text-main">We have some great features from the application and it’s totally free to use by all users around the world.</p>
                         </div>
                     </div>
 
@@ -42,21 +42,21 @@
                             <div class="card card-no-bg">
                                 <img src="./assets/img-landing/phone.png" alt="Phone logo">
                                 <h3>24/7 Support</h3>
-                                <p>We have 24/7 contact support so you can contact us whenever you want and we will respond it.</p>
+                                <p v-set-font:small>We have 24/7 contact support so you can contact us whenever you want and we will respond it.</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="card">
                                 <img src="./assets/img-landing/lock.png" alt="lock logo">
                                 <h3>Data Privacy</h3>
-                                <p>We make sure your data is safe in our database and we will encrypt any data you submitted to us.</p>
+                                <p v-set-font:small>We make sure your data is safe in our database and we will encrypt any data you submitted to us.</p>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-6">
                             <div class="card card-no-bg">
                                 <img src="./assets/img-landing/download.png" alt="download logo">
                                 <h3>Easy Download</h3>
-                                <p>Zwallet is 100% totally free to use it’s now available on Google Play Store and App Store.</p>
+                                <p v-set-font:small>Zwallet is 100% totally free to use it’s now available on Google Play Store and App Store.</p>
                             </div>
                         </div>
                     </div>
@@ -104,7 +104,7 @@
 
                     <div class="row">
                         <div class="col-md-6 offset-md-3">
-                            <p>That amount of money has been transfered from all users. We still counting and going strong!</p>
+                            <p v-set-font:small>That amount of money has been transfered from all users. We still counting and going strong!</p>
                         </div>
                     </div>
                 </div>
@@ -126,19 +126,19 @@
                                 <div class="col-lg-12 features-card">
                                     <div class="text-card">
                                         <h6><span class="number">1.</span> Small Fee</h6>
-                                        <p>We only charge 5% of every success transaction done in Zwallet app.</p>
+                                        <p v-set-font:small>We only charge 5% of every success transaction done in Zwallet app.</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 features-card">
                                     <div class="text-card">
                                         <h6><span class="number">2.</span> Data Secured</h6>
-                                        <p>All your data is secured properly in our system and it’s encrypted.</p>
+                                        <p v-set-font:small>All your data is secured properly in our system and it’s encrypted.</p>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 features-card">
                                     <div class="text-card">
                                         <h6><span class="number">3.</span> User Friendly</h6>
-                                        <p>Zwallet come up with modern and sleek design and not complicated.</p>
+                                        <p v-set-font:small>Zwallet come up with modern and sleek design and not complicated.</p>
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +157,7 @@
 
                     <div class="row">
                         <div class="col-md-6 offset-md-3">
-                            <p>We have some great features from the application and it’s totally free to use by all users around the world.</p>
+                            <p v-set-font:small>We have some great features from the application and it’s totally free to use by all users around the world.</p>
                         </div>
                     </div>
 
@@ -177,7 +177,7 @@
 
                             <div class="row">
                                 <div class="col-lg-12">
-                                    <p>“This is the most outstanding app that I’ve ever try in my live, this app is such an amazing masterpiece and it’s suitable for you who is bussy with their bussiness and must transfer money to another person aut there. Just try this app and see the power!”</p>
+                                    <p v-set-font:small>“This is the most outstanding app that I’ve ever try in my live, this app is such an amazing masterpiece and it’s suitable for you who is bussy with their bussiness and must transfer money to another person aut there. Just try this app and see the power!”</p>
                                 </div>
                             </div>
                         </div>
@@ -226,7 +226,6 @@ export default {
     margin-top: 5%;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
     text-align: center;
 
     color: #FFFFFF;
@@ -240,7 +239,6 @@ export default {
 
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
     text-align: center;
     color: #6379F4;
@@ -264,7 +262,6 @@ section h1, .why {
 section p {
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
     line-height: 31px;
     text-align: center;
 
@@ -448,7 +445,6 @@ section.features .features-card .number {
 section.features .features-card p {
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
     line-height: 31px;
     text-align: left;
 
@@ -500,7 +496,6 @@ section.user .card-user p.user-word {
     margin-top: 3%;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
     line-height: 33px;
     text-align: center;
 

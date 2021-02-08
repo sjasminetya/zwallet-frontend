@@ -5,7 +5,7 @@
                 <SideBar/>
                 <main>
                     <div class="transfer">
-                        <h6 class="transfer-money">Transfer Money</h6>
+                        <h6 v-set-font:small class="transfer-money">Transfer Money</h6>
 
                         <div class="content-transfer">
                             <div class="transfer-friends">
@@ -14,7 +14,7 @@
                                 </div>
 
                                 <div class="text-friends">
-                                    <h6>{{transferToFriend.firstName}} {{transferToFriend.lastName}}</h6>
+                                    <h6 v-set-font:small>{{transferToFriend.firstName}} {{transferToFriend.lastName}}</h6>
                                     <p>{{transferToFriend.phoneNumber}}</p>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
 
                         <div class="row">
                             <div class="col-md-5 mt-3 col-sm-6 col-8">
-                                <button v-b-modal.modal-1 type="submit" class="btn btn-info btn-lg">Continue</button>
+                                <button v-b-modal.modal-1 type="submit" v-set-font:small class="btn btn-info btn-lg">Continue</button>
                                 <b-modal id="modal-1" title="Input your PIN" @ok="transferMoney" @show="resetModal" @hidden="resetModal">
                                     <h6>Input PIN</h6>
                                     <PincodeInput v-model="pin" placeholder="0" :length="6" required/>
@@ -162,7 +162,6 @@ main .transfer-money {
 
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
 
     color: #3A3D42;
@@ -186,7 +185,6 @@ main .content-transfer .user-img img{
 main .content-transfer h6 {
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
 
     color: #4D4B57;
@@ -255,7 +253,6 @@ main .transfer button[type="submit"] {
 
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
     margin-left: 190%;
 

@@ -6,7 +6,7 @@
                 <main>
                     <div class="search-main">
                         <div class="text-main">
-                            <h6 class="search-receiver">Search Receiver</h6>
+                            <h6 v-set-font:small class="search-receiver">Search Receiver</h6>
                         </div>
 
                         <div class="search-box">
@@ -38,7 +38,7 @@
                                         </div>
 
                                         <div class="text-content">
-                                            <h6>{{data.firstName}} {{data.lastName}}</h6>
+                                            <h6 v-set-font:small>{{data.firstName}} {{data.lastName}}</h6>
                                             <p>{{data.phoneNumber}}</p>
                                         </div>
                                     </div>
@@ -133,7 +133,6 @@ main .text-main .search-receiver {
 
     font-style: normal;
     font-weight: bold;
-    font-size: 18px;
     line-height: 25px;
 
     color: #3A3D42;
@@ -181,7 +180,6 @@ main .content-search .search-img img{
 
 main .content-search h6 {
     font-weight: bold;
-    font-size: 18px;
     text-transform: uppercase;
     color: #4D4B57;
 }

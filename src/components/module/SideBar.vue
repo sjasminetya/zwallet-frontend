@@ -2,17 +2,17 @@
   <div>
     <aside>
         <div class="main-menu">
-            <router-link to="/page/dashboard" class="menu">
+            <router-link v-set-font:small to="/page/dashboard" class="menu">
                 <span><i class="fas fa-th-large"></i></span>
                 <div class="menu-sidebar">Dashboard</div>
             </router-link>
 
-            <router-link to="/page/search-receiver" class="menu">
+            <router-link v-set-font:small to="/page/search-receiver" class="menu">
                 <span><i class="fas fa-arrow-up"></i></span>
                 <div class="menu-sidebar">Transfer</div>
             </router-link>
 
-            <div class="menu">
+            <div v-set-font:small class="menu">
                 <span v-b-modal.modal-center><i class="fas fa-plus"></i></span>
                 <div class="menu-sidebar" v-b-modal.modal-center>Top Up</div>
                 <b-modal id="modal-center" title="Top Up saldo" @ok="goTopup" @show="resetModal" @hidden="resetModal">
@@ -106,7 +106,6 @@ aside .main-menu .menu {
     display: flex;
     font-style: normal;
     font-weight: normal;
-    font-size: 18px;
     line-height: 31px;
     list-style-type: none;
 
