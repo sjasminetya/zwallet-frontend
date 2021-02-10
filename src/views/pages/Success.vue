@@ -55,6 +55,10 @@
 
                             <div class="button-success">
                                 <div class="text-center mr-3">
+                                    <button v-set-font:small type="submit" @click.prevent="download" class="btn btn-download">
+                                        <img src="../../assets/img-main/download-button.png" alt="download button">
+                                        <p class="download">Download PDF</p>
+                                    </button>
                                     <button v-set-font:small type="submit" @click.prevent="goHome" class="btn btn-back">Back to Home</button>
                                 </div>
                             </div>
@@ -70,6 +74,9 @@
 import moment from 'moment'
 import { mapActions, mapGetters } from 'vuex'
 import SideBar from '../../components/module/SideBar'
+const pdfMake = require('pdfmake/build/pdfmake.js')
+const pdfFonts = require('pdfmake/build/vfs_fonts.js')
+pdfMake.vfs = pdfFonts.pdfMake.vfs
 export default {
   name: 'Success',
   components: {
@@ -89,6 +96,59 @@ export default {
     },
     changeRupiah (saldo) {
       return new Intl.NumberFormat(['ban', 'id']).format(saldo)
+    },
+    download () {
+      const doc = {
+        content: [
+          { text: 'Transaction Success', style: 'header', margin: [0, 10, 0, 0] },
+          { text: 'Amount', style: 'judul', margin: [0, 40, 0, 0] },
+          { text: 'Rp ' + this.changeRupiah(this.dataTransfer.amount), style: 'isi' },
+          { text: 'Balance Left', style: 'judul', margin: [0, 40, 0, 0] },
+          { text: 'Rp ' + this.changeRupiah(this.profile.saldo), style: 'isi' },
+          { text: 'Date & Time', style: 'judul', margin: [0, 40, 0, 0] },
+          { text: this.transferDate(this.dataTransfer.date_time), style: 'isi' },
+          { text: 'Notes', style: 'judul', margin: [0, 40, 0, 0] },
+          { text: this.dataTransfer.notes, style: 'isi' },
+          { text: 'Transfer To', style: 'judul', margin: [0, 40, 0, 0] },
+          { image: 'data', width: 60, height: 60 },
+          { text: this.transferToFriend.firstName + ' ' + this.transferToFriend.lastName, style: 'isi', margin: [80, -50, 0, 0] },
+          { text: this.transferToFriend.phoneNumber, style: 'isi', margin: [80, 0, 0, 0] }
+        ],
+        images: {
+          data: this.transferToFriend.image
+        },
+        footer: {
+          columns: [
+            { text: 'Zwallet Team', style: 'footer' }
+          ]
+        },
+        styles: {
+          isi: {
+            fontSize: 18,
+            bold: true
+          },
+          header: {
+            fontSize: 22,
+            bold: true,
+            color: 'royalblue',
+            alignment: 'center'
+          },
+          footer: {
+            fontSize: 22,
+            bold: true,
+            color: 'royalblue',
+            alignment: 'center'
+          },
+          judul: {
+            fontSize: 14
+          },
+          image: {
+            borderRadius: 10,
+            objectFit: 'cover'
+          }
+        }
+      }
+      pdfMake.createPdf(doc).download('success.pdf')
     }
   },
   computed: {
