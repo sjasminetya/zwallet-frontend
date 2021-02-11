@@ -8,6 +8,9 @@
 import { mapActions } from 'vuex'
 export default {
   name: 'App',
+  metaInfo: {
+    title: 'Zwallet'
+  },
   methods: {
     ...mapActions(['interceptorRequest', 'interceptorResponse'])
   },
