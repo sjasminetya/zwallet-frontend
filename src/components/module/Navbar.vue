@@ -111,13 +111,13 @@ nav .nav-right span {
 
 @media (max-width: 379px) {
     nav .nav-right {
-        margin-right: 35px;
+        margin-right: 75px;
     }
 }
 
 @media (max-width: 347px) {
     nav .nav-right {
-        margin-right: 15px;
+        margin-right: 60px;
     }
 }
 
