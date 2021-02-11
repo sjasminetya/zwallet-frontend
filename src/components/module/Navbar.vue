@@ -68,8 +68,6 @@ nav .nav-right .user-img img{
     height: 65px;
     object-fit: cover;
     border-radius: 100%;
-    /* margin-top: 10%;
-    margin-left: 10%; */
 }
 
 nav .nav-right .name-phone {

@@ -71,16 +71,13 @@ export default {
     ...mapActions(['userFriends', 'searchName']),
     async searchingName () {
       this.searching = await this.searchName(this.search)
-      console.log(this.searching)
     },
     goPage (id) {
       this.$router.push({ path: '/page/input-amount', query: { id: id } })
     }
   },
   watch: {
-    search (newSearch, oldSearch) {
-      console.log('new search', newSearch)
-      console.log('old search', oldSearch)
+    search () {
       this.searchingName()
     }
   },

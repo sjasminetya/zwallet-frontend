@@ -101,6 +101,9 @@ export default {
           this.$awn.success('success update')
           this.userProfile()
         })
+        .catch(err => {
+          console.log(err)
+        })
     },
     addNumber () {
       this.$v.$touch()

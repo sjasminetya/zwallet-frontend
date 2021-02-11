@@ -51,7 +51,6 @@ export default {
     updatePassword () {
       this.$v.$touch()
       if (this.$v.$pendding || this.$v.$error) return
-      console.log(this.id)
       const payload = {
         id: this.id,
         password: this.password

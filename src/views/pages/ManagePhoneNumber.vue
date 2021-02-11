@@ -59,9 +59,6 @@ export default {
           this.remove_number()
           this.getPhoneNumber()
         })
-        .catch(err => {
-          console.log(err.response)
-        })
     }
   },
   computed: {

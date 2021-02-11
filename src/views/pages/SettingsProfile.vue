@@ -67,6 +67,9 @@ export default {
           this.$awn.success('success update image')
           this.userProfile()
         })
+        .catch(err => {
+          console.log(err)
+        })
     },
     goLogout () {
       this.logout()

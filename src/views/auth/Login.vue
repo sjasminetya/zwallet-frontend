@@ -40,6 +40,7 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
 import Input from '../../components/base/Input'
 import Button from '../../components/base/Button'
 import { required, minLength, email } from 'vuelidate/lib/validators'
@@ -74,8 +75,22 @@ export default {
         password: this.password
       }
       this.login(payload)
-        .then(() => {
-          this.$awn.success('Success login')
+        .then(async () => {
+          let timerInterval
+          await Swal.fire({
+            title: 'Hi, welcome to Zwallet :)',
+            html: 'Let\'s explore zwallet 🚀',
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading()
+              timerInterval = setInterval(() => {
+              }, 100)
+            },
+            willClose: () => {
+              clearInterval(timerInterval)
+            }
+          })
           this.$router.push('/page/dashboard')
         })
     },

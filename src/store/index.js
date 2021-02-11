@@ -126,7 +126,6 @@ export default new Vuex.Store({
         axios.patch(`${process.env.VUE_APP_URL_API}/users/reset/${payload.id}`, payload)
           .then(res => {
             const result = res.data.result.message
-            console.log(result)
             resolve(result)
           })
           .catch(err => {
@@ -147,7 +146,6 @@ export default new Vuex.Store({
             const result = res.data.result[0]
             context.commit('set_user_login', result)
             resolve(result)
-            console.log('user login', result)
           })
       })
     },
@@ -159,8 +157,6 @@ export default new Vuex.Store({
             context.commit('set_transaction_history', result.transaction)
             context.commit('set_pagination', result.pagination)
             resolve(result)
-            console.log('transaction history', result.transaction)
-            console.log('pagination', result.pagination)
           })
       })
     },
@@ -171,7 +167,6 @@ export default new Vuex.Store({
             const result = res.data.result
             context.commit('set_user_friends', result)
             resolve(result)
-            console.log('user friends', result)
           })
       })
     },
@@ -182,7 +177,6 @@ export default new Vuex.Store({
             const result = res.data.result
             context.commit('set_search_name', result)
             resolve(result)
-            console.log('search name', result)
           })
       })
     },
@@ -193,7 +187,6 @@ export default new Vuex.Store({
             const result = res.data.result[0]
             context.commit('set_profile_friends', result)
             resolve(result)
-            console.log('profile friends', result)
           })
       })
     },
@@ -204,7 +197,6 @@ export default new Vuex.Store({
             const result = res.data.result.message
             context.commit('set_transfer', result)
             resolve(result)
-            console.log('transfer', result)
           })
       })
     },
@@ -215,7 +207,6 @@ export default new Vuex.Store({
             const result = res.data.result.message
             context.commit('set_topup', result)
             resolve(result)
-            console.log('topup', result)
           })
       })
     },
@@ -223,7 +214,6 @@ export default new Vuex.Store({
       return new Promise((resolve, reject) => {
         axios.patch(`${process.env.VUE_APP_URL_API}/users/${localStorage.getItem('id')}`, payload)
           .then(res => {
-            console.log('data update', res.data.result.message)
             resolve(res)
           })
           .catch(err => {
@@ -237,7 +227,6 @@ export default new Vuex.Store({
           .then(res => {
             const result = res.data.result.message
             context.commit('set_phone_number', result)
-            console.log('add phone number', result)
             resolve(result)
           })
       })
@@ -249,7 +238,6 @@ export default new Vuex.Store({
             const result = res.data.result
             resolve(result)
             context.commit('set_phone_number', result)
-            console.log('get number', result)
           })
       })
     },
@@ -260,7 +248,7 @@ export default new Vuex.Store({
             resolve(res)
           })
           .catch(err => {
-            console.log(err)
+            reject(err)
           })
       })
     },
@@ -287,7 +275,6 @@ export default new Vuex.Store({
         }
         return response
       }, function (error) {
-        console.log(error.response)
         if (error.response.data.statusCode === 400) {
           if (error.response.data.err.error === 'Email already exists') {
             Swal.fire({

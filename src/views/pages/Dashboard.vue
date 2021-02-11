@@ -29,6 +29,10 @@
                                 <h6 v-set-font:small class="transaction">Transaction History</h6>
                                 <router-link to="/page/transaction-history">See all</router-link>
 
+                                <div v-if="transactionHistory.length === 0">
+                                    <h5 class="null">You don't have transaction</h5>
+                                </div>
+
                                 <div class="content-history" v-for="(data, index) in transactionHistory" :key="index">
                                     <div class="history">
                                         <div class="user-profile">
@@ -64,6 +68,7 @@
 </template>
 
 <script>
+import Swal from 'sweetalert2'
 import PincodeInput from 'vue-pincode-input'
 import { mapActions, mapGetters } from 'vuex'
 import SideBar from '../../components/module/SideBar'
@@ -103,9 +108,16 @@ export default {
   computed: {
     ...mapGetters(['profile', 'transactionHistory'])
   },
-  mounted () {
-    this.userProfile()
+  async mounted () {
+    await this.userProfile()
     this.getTransactionHistory()
+
+    if (this.profile.expense === 0) {
+      Swal.fire(
+        `Hi ${this.profile.username}`,
+        'For a better experience exploring Zwallet, you must update the PIN. Click profile and then click update PIN, and try transfer.Thank you 💖'
+      )
+    }
   }
 }
 </script>
@@ -278,6 +290,12 @@ main .section-main .main-right {
 
 main .section-main .main-right .history-main {
     padding-top: 20%;
+}
+
+main .section-main .main-right .history-main .null {
+    padding-top: 50%;
+    padding-left: 10%;
+    color: #7a7c7e;
 }
 
 main .section-main .main-right .transaction {

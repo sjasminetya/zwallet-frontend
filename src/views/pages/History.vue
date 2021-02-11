@@ -8,6 +8,10 @@
                         <h6 v-set-font:small class="transaction">Transaction History</h6>
                         <p class="text-transaction">your transaction history after transfer to your friends</p>
 
+                        <div v-if="transactionHistory.length === 0">
+                            <h5 class="null">You don't have transaction</h5>
+                        </div>
+
                         <div class="content-history" v-for="(data, index) in transactionHistory" :key="index">
 
                             <div class="history">
@@ -54,8 +58,8 @@ export default {
   computed: {
     ...mapGetters(['transactionHistory', 'getPagination'])
   },
-  mounted () {
-    this.getTransactionHistory()
+  async mounted () {
+    await this.getTransactionHistory()
   }
 }
 </script>
@@ -126,6 +130,12 @@ main p.this-month {
 
 main .history-main {
     padding-top: 20%;
+}
+
+main .history-main .null {
+    margin: 30% 0;
+    text-align: center;
+    color: #7a7c7e;
 }
 
 main .content-history {
