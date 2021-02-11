@@ -542,7 +542,37 @@ main .section-main .main-right .history .amount {
     }
 
     main .main-top .button-right button{
+        margin-left: 20px;
+    }
+}
+
+@media (max-width: 367px) {
+    main .main-top .button-right {
+        margin-left: 15px;
+    }
+
+    main .main-top .button-right button{
         margin-left: 10px;
+    }
+}
+
+@media (max-width: 353px) {
+    main .main-top .button-right {
+        margin-left: 15px;
+    }
+
+    main .main-top .button-right button{
+        margin-left: 3px;
+    }
+}
+
+@media (max-width: 339px) {
+    main .main-top .button-right {
+        margin-left: 15px;
+    }
+
+    main .main-top .button-right button{
+        margin-left: 0px;
     }
 }
 

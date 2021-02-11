@@ -513,6 +513,13 @@ main .content-personal a:hover {
     }
 }
 
+@media (max-width: 463px) {
+    main .content-personal .phone-number .add-number,
+    main .content-personal .phone-number .manage-number {
+        top: 75%;
+    }
+}
+
 @media (max-width: 456px) {
     main .content-personal .first-name,
     main .content-personal .last-name,
@@ -522,11 +529,18 @@ main .content-personal a:hover {
     }
 
     main .content-personal .phone-number .add-number {
-        left: 50%;
+        left: 55%;
     }
 
     main .content-personal .phone-number .manage-number {
-        left: 65%;
+        left: 71%;
+    }
+}
+
+@media (max-width: 451px) {
+    main .content-personal .phone-number .add-number,
+    main .content-personal .phone-number .manage-number {
+        top: 73%;
     }
 }
 
@@ -556,10 +570,10 @@ main .content-personal a:hover {
     }
 }
 
-@media (max-width: 360px) {
+@media (max-width: 365px) {
     main .content-personal .phone-number .add-number,
     main .content-personal .phone-number .manage-number {
-        top: 73%;
+        top: 75%;
     }
 }
 
@@ -569,6 +583,13 @@ main .content-personal a:hover {
     main .content-personal .verified-email,
     main .content-personal .phone-number {
         width: 300px;
+    }
+}
+
+@media (max-width: 343px) {
+    main .content-personal .phone-number .add-number,
+    main .content-personal .phone-number .manage-number {
+        top: 74%;
     }
 }
 

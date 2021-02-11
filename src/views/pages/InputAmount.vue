@@ -349,6 +349,10 @@ main .transfer button[type="submit"] {
         width: 450px;
     }
 
+    main .content-transfer .transfer-friends .text-friends {
+        margin-top: 5%;
+    }
+
     main .transfer button[type="submit"] {
         margin-left: 90%;
     }
@@ -419,6 +423,10 @@ main .transfer button[type="submit"] {
         width: 360px;
     }
 
+    main .content-transfer .transfer-friends .text-friends {
+        margin-top: 7%;
+    }
+
     .form-input img {
         padding-left: 110px;
     }
@@ -440,8 +448,13 @@ main .transfer button[type="submit"] {
         padding-left: 20%;
     }
 
+    .form-input input {
+        width: 230px;
+        margin-left: 40%;
+    }
+
     .form-input img {
-        padding-left: 100px;
+        padding-left: 80px;
     }
 
     main .transfer .saldo {
@@ -454,10 +467,6 @@ main .transfer button[type="submit"] {
 }
 
 @media (max-width: 360px) {
-    main .transfer .form-number .amount {
-        margin-left: 40%;
-    }
-
     .form-input input {
         width: 200px;
         margin-left: 50%;
@@ -469,6 +478,20 @@ main .transfer button[type="submit"] {
 
     main .transfer button[type="submit"] {
         margin-left: 50%;
+    }
+}
+
+@media (max-width: 351px) {
+    .form-input input {
+        margin-left: 39%;
+    }
+
+    .form-input img {
+        padding-left: 70px;
+    }
+
+    main .transfer .saldo {
+        margin-left: 27%;
     }
 }
 
