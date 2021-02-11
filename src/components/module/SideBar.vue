@@ -287,12 +287,45 @@ aside .main-menu .menu-logout {
     }
 
     aside .main-menu .menu span {
-        margin-left: 30px;
+        margin-left: 44px;
     }
 
     aside .main-menu .menu-logout {
-        margin-top: -5px;
-        margin-left: 215px;
+        margin-top: -6px;
+        margin-left: 250px;
+    }
+}
+
+@media (max-width: 367px) {
+    aside .main-menu .menu span {
+        margin-left: 42px;
+    }
+
+    aside .main-menu .menu-logout {
+        margin-top: -6px;
+        margin-left: 240px;
+    }
+}
+
+@media (max-width: 351px) {
+    aside .main-menu .menu span {
+        margin-left: 40px;
+    }
+
+    aside .main-menu .menu-logout {
+        margin-top: -6px;
+        margin-left: 230px;
+    }
+}
+
+@media (max-width: 331px) {
+    aside .main-menu .menu span {
+        margin-left: 35px;
+    }
+
+    aside .main-menu .menu-logout {
+        margin-top: -6px;
+        margin-left: 210px;
     }
 }
 

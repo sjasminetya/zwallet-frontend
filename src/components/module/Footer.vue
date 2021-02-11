@@ -39,7 +39,7 @@ footer {
     footer {
         display: flex;
         flex-direction: column;
-        height: 90px;
+        height: 120px;
     }
 
     footer .left-copyright {
