@@ -6,6 +6,7 @@ import store from './store'
 import Vuelidate from 'vuelidate'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import VueAWN from 'vue-awesome-notifications'
+import titleMixin from './mixins/titleMixin'
 import 'bootstrap/dist/css/bootstrap.css'
 import 'bootstrap-vue/dist/bootstrap-vue.css'
 require('vue-awesome-notifications/dist/styles/style.css')
@@ -15,6 +16,7 @@ Vue.use(Vuelidate)
 Vue.use(BootstrapVue)
 Vue.use(IconsPlugin)
 Vue.use(VueAWN)
+Vue.mixin(titleMixin)
 
 Vue.directive('set-font', {
   bind: function (el, binding) {

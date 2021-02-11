@@ -14,7 +14,8 @@ export default {
   created () {
     this.interceptorRequest()
     this.interceptorResponse()
-  }
+  },
+  title: 'Zwallet'
 }
 </script>
 
