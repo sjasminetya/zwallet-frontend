@@ -10,7 +10,7 @@
             <span><i class="fas fa-envelope"></i></span>
             <Input v-model.trim="$v.email.$model" :class="{ 'is-invalid': validationStatus($v.email) }" type="email" placeHolder="Enter your e-mail"/>
             <div class="invalid-feedback" v-if="!$v.email.required">Field is required.</div>
-            <div class="invalid-feedback" v-if="!$v.email.email">invalid email</div>
+            <div class="invalid-feedback" v-if="!$v.email.email">Please type the correct email format.</div>
         </div>
 
         <div class="form-input mt-5">
@@ -29,7 +29,7 @@
         </div>
 
         <div class="text-center mb-3">
-            <Button type="submit" name="Login"/>
+            <Button type="submit" name="Login" :disabled="false" />
         </div>
 
         <div class="text-center mb-2">
@@ -54,7 +54,8 @@ export default {
   data () {
     return {
       email: '',
-      password: ''
+      password: '',
+      loading: false
     }
   },
   validations: {
@@ -74,6 +75,7 @@ export default {
         email: this.email,
         password: this.password
       }
+      this.loading = true
       this.login(payload)
         .then(async () => {
           let timerInterval
@@ -91,6 +93,7 @@ export default {
               clearInterval(timerInterval)
             }
           })
+          this.loading = false
           this.$router.push('/page/dashboard')
         })
     },
@@ -123,10 +126,6 @@ export default {
     position: relative;
 }
 
-.form-box .form-input .is-invalid {
-    border-bottom: 2px solid red;
-}
-
 .form-box .form-input .is-invalid:focus {
     border-bottom: 2px solid red;
     box-shadow: none;
@@ -147,8 +146,9 @@ export default {
 .form-box .form-input .toggle-password {
     position: absolute;
     top: 20px;
-    left: 390px;
+    right: 0;
     opacity: 0;
+    cursor: pointer;
 }
 
 .form-box .form-input span {
@@ -161,7 +161,7 @@ export default {
 .form-box .form-input span.span-eye {
     position: absolute;
     top: 15px;
-    left: 380px;
+    right: 0;
 }
 
 .form-box .form-input span.span-eye:active {

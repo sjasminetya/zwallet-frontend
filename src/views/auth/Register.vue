@@ -143,8 +143,9 @@ export default {
 .form-box .form-input .toggle-password {
     position: absolute;
     top: 20px;
-    left: 390px;
     opacity: 0;
+    right: 0;
+    cursor: pointer;
 }
 
 .form-box .form-input span {
@@ -157,7 +158,7 @@ export default {
 .form-box .form-input span.span-eye {
     position: absolute;
     top: 15px;
-    left: 380px;
+    right: 0;
 }
 
 .form-box .form-input span.span-eye:active {

@@ -1,7 +1,7 @@
 <template>
     <div>
         <Navbar/>
-        <div class="jumbotron jumbotron-fluid">
+            <div class="jumbotron jumbotron-fluid">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-8 offset-md-2">
@@ -208,6 +208,7 @@ export default {
     height: 800px;
     margin-top: -75px;
     margin-bottom: 0px;
+    background-size: cover;
 }
 
 .jumbotron .text-jumbotron {

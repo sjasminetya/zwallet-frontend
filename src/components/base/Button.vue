@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button v-set-font:small>{{name}}</button>
+        <button v-set-font:small :disabled="disabled" class="className">{{name}}</button>
     </div>
 </template>
 
@@ -8,7 +8,9 @@
 export default {
   name: 'Button',
   props: {
-    name: String
+    name: String,
+    disabled: Boolean,
+    className: String
   }
 }
 </script>
@@ -25,12 +27,12 @@ button {
     font-weight: bold;
     line-height: 25px;
 
-    background: #DADADA;
+    background: #6379F4;
     border-radius: 12px;
     box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
     border: none;
 
-    color: #88888F;
+    color: #FFFFFF;
 }
 
 button:focus {
