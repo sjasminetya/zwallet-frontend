@@ -64,16 +64,17 @@ nav .nav-right {
 }
 
 nav .nav-right .user-img img{
-    width: 65px;
-    height: 65px;
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
     object-fit: cover;
-    border-radius: 100%;
 }
 
 nav .nav-right .name-phone {
     display: flex;
     flex-direction: column;
     margin-left: 10px;
+    padding-top: 6px;
 }
 
 nav .nav-right span {

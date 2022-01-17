@@ -290,9 +290,11 @@ section.why-choose-zwallet p.text-main {
 section.why-choose-zwallet .card {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    width: 366px;
-    height: 344px;
+    min-width: 366px;
+    min-height: 344px;
     margin-top: 15%;
 
     background: #FFFFFF;
@@ -310,10 +312,9 @@ section.why-choose-zwallet .card.card-no-bg {
 }
 
 section.why-choose-zwallet .card img {
-    max-width: 100%;
+    width: 150px;
     height: auto;
-    object-fit: contain;
-
+    object-fit: cover;
     margin-top: 5%;
 }
 
