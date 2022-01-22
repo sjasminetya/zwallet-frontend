@@ -1,14 +1,13 @@
 <template>
-    <div>
-        <Navbar/>
-        <router-view/>
-        <Footer/>
-    </div>
+  <div>
+    <Navbar />
+    <router-view />
+    <Footer />
+  </div>
 </template>
 
 <script>
-import Navbar from '../../components/module/Navbar'
-import Footer from '../../components/module/Footer'
+import { Footer, Navbar } from '../../components/module'
 export default {
   name: 'Index',
   components: {
@@ -19,5 +18,4 @@ export default {
 </script>
 
 <style scoped>
-
 </style>

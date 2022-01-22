@@ -1,0 +1,31 @@
+footer {
+  background: #6379f4;
+  height: 68px;
+  width: 100%;
+  color: #fff;
+  margin-top: 30px;
+}
+
+footer h6 {
+  margin-bottom: 0px;
+}
+
+@media (max-width: 614px) {
+  footer {
+    display: flex;
+    flex-direction: column;
+    height: 120px;
+  }
+
+  footer .left-copyright {
+    margin-left: 60px;
+  }
+}
+
+@media (max-width: 382px) {
+  footer .left-copyright,
+  footer .right-number,
+  footer .right-contact {
+    margin-left: 0px !important;
+  }
+}

@@ -17,6 +17,7 @@ import PersonalInformation from '../views/pages/PersonalInformation.vue'
 import ManagePhoneNumber from '../views/pages/ManagePhoneNumber.vue'
 import ChangePassword from '../views/pages/ChangePassword.vue'
 import ChangePin from '../views/pages/ChangePin.vue'
+import TopUp from '../views/pages/TopUp.vue'
 
 import store from '../store/index'
 
@@ -122,6 +123,12 @@ const routes = [
         path: 'change-pin',
         name: 'ChangePin',
         component: ChangePin,
+        meta: { requiresAuth: true }
+      },
+      {
+        path: 'top-up',
+        name: 'TopUp',
+        component: TopUp,
         meta: { requiresAuth: true }
       }
     ]
