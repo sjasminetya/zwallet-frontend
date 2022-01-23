@@ -1,0 +1,93 @@
+nav .navbar-brand {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 29px;
+  line-height: 40px;
+
+  color: #ffffff !important;
+}
+
+nav .btn {
+  margin-top: 10px;
+  margin-right: 15px;
+}
+
+nav .btn-login {
+  width: 120px;
+  height: 48px;
+  padding-top: 10px;
+
+  font-style: normal;
+  font-weight: bold;
+  line-height: 25px;
+  text-align: center;
+
+  color: #ffffff;
+
+  border: 2px solid #ffffff;
+  box-sizing: border-box;
+  box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+nav .btn-login:hover {
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+nav .btn-sign-up {
+  width: 120px;
+  height: 48px;
+  padding-top: 10px;
+
+  font-style: normal;
+  font-weight: bold;
+  line-height: 25px;
+  text-align: center;
+
+  color: #6379f4;
+
+  background: #ffffff;
+  box-shadow: 0px 6px 75px rgba(100, 87, 87, 0.05);
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+nav .btn-sign-up:hover {
+  color: #6379f4;
+  transform: scale(1.05);
+}
+
+@media (max-width: 980px) {
+  .navbar {
+    background: #6379f4 !important;
+  }
+}
+
+@media (max-width: 768px) {
+  nav .navbar-brand {
+    color: #ffffff;
+  }
+
+  nav.navbar-light {
+    background: #6379f4;
+  }
+
+  nav .navbar-nav {
+    display: flex;
+    flex-direction: row;
+  }
+
+  nav .btn {
+    margin: auto;
+    margin-left: 50px;
+  }
+}
+
+@media (max-width: 495px) {
+  nav .btn {
+    margin: auto;
+    margin-left: 20px;
+  }
+}

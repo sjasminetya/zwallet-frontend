@@ -1,6 +1,6 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar-white bg-white">
+    <nav class="navbar navbar-expand-lg navbar-white bg-white navbar-dashboard">
       <div class="container">
         <div class="text-zwallet">
           <h2>Zwallet</h2>
