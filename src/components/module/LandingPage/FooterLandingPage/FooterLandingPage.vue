@@ -19,7 +19,7 @@
 
         <hr />
 
-        <div class="row text-bottom d-flex justify-content-between">
+        <div class="text-bottom d-flex justify-content-between">
           <p class="copyright">{{new Date().getFullYear()}} Zwallet. All right reserved.</p>
           <p class="email">adm.zwallet@gmail.com</p>
         </div>
