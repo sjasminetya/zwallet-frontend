@@ -1,6 +1,6 @@
 <template>
   <div>
-    <footer>
+    <footer class="footer-dashboard">
       <div class="container d-flex justify-content-between align-items-center">
         <div class="left-copyright ">
           <h6>{{ new Date().getFullYear() }} Zwallet. All right reserved</h6>

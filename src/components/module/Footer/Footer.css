@@ -1,6 +1,6 @@
-footer {
+.footer-dashboard {
   background: #6379f4;
-  height: 68px;
+  height: 68px !important;
   width: 100%;
   color: #fff;
   margin-top: 30px;
@@ -8,26 +8,26 @@ footer {
   justify-content: center;
 }
 
-footer h6 {
+.footer-dashboard h6 {
   margin-bottom: 0px;
 }
 
 @media (max-width: 614px) {
-  footer {
+  .footer-dashboard {
     display: flex;
     flex-direction: column;
     height: 120px;
   }
 
-  footer .left-copyright {
+  .footer-dashboard .left-copyright {
     margin-left: 60px;
   }
 }
 
 @media (max-width: 382px) {
-  footer .left-copyright,
-  footer .right-number,
-  footer .right-contact {
+  .footer-dashboard .left-copyright,
+  .footer-dashboard .right-number,
+  .footer-dashboard .right-contact {
     margin-left: 0px !important;
   }
 }

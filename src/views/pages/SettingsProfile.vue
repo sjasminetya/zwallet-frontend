@@ -10,7 +10,6 @@
             </div>
             <input type="file" ref="file" id="file" @change="update" />
             <label for="file" class="text-edit">
-              <span><i class="fas fa-pen"></i></span>
               <h5>Edit</h5>
             </label>
 
@@ -137,6 +136,7 @@ main .section-profile .text-edit span {
   top: 22%;
   left: 47%;
   color: #000;
+  cursor: pointer;
 }
 
 main .section-profile .text-edit h5 {
